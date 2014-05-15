@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<config>
+	<min_id value="0" />
+	<max_id value="100" />
+</config>

@@ -1,0 +1,129 @@
+<material name="particles" version="100">
+
+	<attributes>
+		<var name="position" val="position"/>
+		<var name="color0" val="color0"/>
+		<var name="texcoord0" val="uv0"/>
+	</attributes>
+
+	<uniforms>
+		<var name="wvp" 				val="worldViewProjectionMatrix4"/>
+		<var name="world" 				val="woldMatrix4"/>
+		<var name="viewprojection" 		val="viewProjectionMatrix4"/>
+		<var name="VertexMovementForce" val="VertexMovementForceVec3"/>
+		<var name="Time" 				val="timeFloat"/>		
+	</uniforms>
+
+	<samplers>
+		<var name="texture0"/>
+	</samplers>
+
+	<rendertarget val="default"/>
+	
+	<defaultTechnique val="add"/>
+	
+	<technique val="add">
+		<pass val="default">
+			<blend_enable val="true"/>
+			<blend_color val="1 1 1 1"/>
+			<blend_func_separate>
+			  <src_rgb val="SRC_ALPHA"/>
+			  <dest_rgb val="ONE"/>
+			  <src_alpha val="ZERO"/>
+			  <dest_alpha val="ONE"/>
+			</blend_func_separate>
+			<blend_equation_separate>
+			  <rgb val="FUNC_ADD"/>
+			  <alpha val="FUNC_ADD"/>
+			</blend_equation_separate>
+			<cull_face_enable val="false"/>
+			<cull_face val="BACK"/>
+			<front_face val="CCW"/>
+			<depth_test_enable val="true"/>
+			<depth_func val="LEQUAL"/>
+			<depth_mask val="false"/>
+			<line_width val="1"/>
+			<point_size val="1"/>
+			<polygon_offset_fill_enable val="false"/>
+			<polygon_offset val="0 0"/>
+			<sample_alpha_to_coverage_enable val="false"/>
+			<sample_coverage_enable val="false"/>
+			<sample_coverage>
+			  <val val="1"/>
+			  <invert val="false"/>
+			</sample_coverage>
+			<stencil_test_enable val="false"/>
+			<stencil_func>
+			  <func val="ALWAYS"/>
+			  <ref val="0"/>
+			  <mask val="-1"/>
+			</stencil_func>
+			<stencil_op>
+			  <fail val="KEEP"/>
+			  <zfail val="KEEP"/>
+			  <zpass val="KEEP"/>
+			</stencil_op>
+			<vshader>
+			  <shader_source val="textured_vp.glsl"/>
+			  <compiler_options val="#define USE_VCOLOR"/>
+			</vshader>
+			<fshader>
+			  <shader_source val="textured_fp.glsl"/>
+			  <compiler_options val="#define USE_VCOLOR"/>
+			</fshader>
+		</pass>
+	</technique>
+	
+	<technique val="blend">
+		<pass val="default">
+			<blend_enable val="true"/>
+			<blend_color val="1 1 1 1"/>
+			<blend_func_separate>
+			  <src_rgb val="SRC_ALPHA"/>
+			  <dest_rgb val="ONE_MINUS_SRC_ALPHA"/>
+			  <src_alpha val="ZERO"/>
+			  <dest_alpha val="ONE"/>
+			</blend_func_separate>
+			<blend_equation_separate>
+			  <rgb val="FUNC_ADD"/>
+			  <alpha val="FUNC_ADD"/>
+			</blend_equation_separate>
+			<cull_face_enable val="false"/>
+			<cull_face val="BACK"/>
+			<front_face val="CCW"/>
+			<depth_test_enable val="true"/>
+			<depth_func val="LESS"/>
+			<depth_mask val="false"/>
+			<line_width val="1"/>
+			<point_size val="1"/>
+			<polygon_offset_fill_enable val="false"/>
+			<polygon_offset val="0 0"/>
+			<sample_alpha_to_coverage_enable val="false"/>
+			<sample_coverage_enable val="false"/>
+			<sample_coverage>
+			  <val val="1"/>
+			  <invert val="false"/>
+			</sample_coverage>
+			<stencil_test_enable val="false"/>
+			<stencil_func>
+			  <func val="ALWAYS"/>
+			  <ref val="0"/>
+			  <mask val="-1"/>
+			</stencil_func>
+			<stencil_op>
+			  <fail val="KEEP"/>
+			  <zfail val="KEEP"/>
+			  <zpass val="KEEP"/>
+			</stencil_op>
+			<vshader>
+			  <shader_source val="textured_vp.glsl"/>
+			  <compiler_options val="#define USE_VCOLOR"/>
+			</vshader>
+			<fshader>
+			  <shader_source val="textured_fp.glsl"/>
+			  <compiler_options val="#define USE_VCOLOR"/>
+			</fshader>
+		</pass>
+	</technique>	
+
+</material>

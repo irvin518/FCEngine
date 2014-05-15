@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<Config version="2.21">
+    <WorkingDirectory path="F:\x\CPP\Puzzle_arena_ios\IPhone\trunk\Externals\ZoneBuild" />
+    <EffectsDirectory path="E:\FCEngine\FCEngine\trunk\FCEngine\Resource\effects\particle" />
+    <MaterialsDirectory path="" />
+    <TexturesDirectory path="" />
+    <LastEffectsFile path="E:\FCEngine\FCEngine\trunk\FCEngine\Resource\effects\particle/effects.xml" />
+    <BGColor value="rgb(80, 80, 80)" />
+    <BGImage value="" />
+    <ShowGrid value="1" />
+    <HasLoop value="0" />
+    <EnvMeshFile value="" />
+    <EnvAnimFile value="" />
+    <EnvPlayAnim value="" />
+    <EnvLoopAnim value="0" />
+    <EnvLinkNode value="" />
+    <EnvVisible value="0" />
+    <GameEmulator path="F:\x\CPP\Puzzle_arena_ios\IPhone\trunk\Externals\ZoneBuild/../../../trunk/build/Win32/N.O.V.A.3_Debug.exe" />
+    <Unit value="50.000000" />
+    <EditorPerspectiveString value="layout2|name=Project Window;caption=Project Window;state=16779262;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=160;besth=600;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Canvas;caption=Canvas;state=1792;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=160;besth=600;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=PSProperties;caption=PSProperties;state=16795646;dir=3;layer=0;row=3;pos=0;prop=100000;bestw=600;besth=800;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Time;caption=Time;state=18876415;dir=2;layer=0;row=0;pos=0;prop=100000;bestw=500;besth=150;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=75;floaty=75;floatw=516;floath=220|name=Export;caption=Export;state=18876415;dir=2;layer=0;row=0;pos=0;prop=100000;bestw=500;besth=150;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=100;floaty=100;floatw=516;floath=186|name=Scale;caption=Batch scale;state=18876415;dir=2;layer=0;row=0;pos=0;prop=100000;bestw=300;besth=450;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=125;floaty=125;floatw=316;floath=486|dock_size(5,0,0)=162|" />
+    <MainWindow posX="-8" posY="-8" width="1936" height="1056" />
+</Config>

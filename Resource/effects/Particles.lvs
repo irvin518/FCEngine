@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<solution name="Puzzle_Arena" description="Content of Puzzle_Arena">
+	<content checkReduplicateFilename="true">
+		<contentDirectory path="particle"/>
+	</content>	
+	<effects_library name="particle/effects.xml"/>
+</solution>

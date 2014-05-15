@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Imageset Name="Demo" Imagefile="DemoShop0.png" NativeHorzRes="1024" NativeVertRes="512" AutoScaled="false">
+    <Image Name="BG" XPos="168" YPos="0" Width="421" Height="318"/>
+    <Image Name="ShopPanel" XPos="338" YPos="18" Width="1" Height="1"/>
+    <Image Name="ButtonNormal" XPos="591" YPos="0" Width="50" Height="23"/>
+    <Image Name="ButtonPressed" XPos="643" YPos="0" Width="50" Height="23"/>
+    <Image Name="ButtonDisabled" XPos="602" YPos="345" Width="1" Height="1"/>
+    <Image Name="CheckBoxBG" XPos="590" YPos="321" Width="74" Height="43"/>
+    <Image Name="CheckBoxIndicator" XPos="546" YPos="321" Width="44" Height="43"/>
+    <Image Name="CheckBoxIndicatorChecked" XPos="494" YPos="325" Width="41" Height="40"/>
+    <Image Name="SliderBar" XPos="454" YPos="6" Width="82" Height="11"/>
+    <Image Name="SliderBall" XPos="643" YPos="0" Width="49" Height="23"/>
+    <Image Name="EditBoxBK" XPos="458" YPos="280" Width="123" Height="28"/>
+</Imageset>

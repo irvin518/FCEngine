@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<Config version="0.10">
+    <WorkingDirectory path="X:\Cpp\IPhone\trunk\res\game\levels" />
+    <LastUsedEmulator value="0" />
+    <LastDevice value="localhost" />
+    <EditMode value="1" />
+    <GeometryMode value="1" />
+    <InsertPreview value="0" />
+    <Unit value="50.000000" />
+    <Snap>
+        <SnapMovement value="0" />
+        <SnapMovementMode value="0" />
+        <SnapMovementUnits value="1" />
+    </Snap>
+    <EditorCameraPosX value="0" />
+    <GOLEditorCameraPosX value="0" />
+    <EditorCameraPosY value="8" />
+    <GOLEditorCameraPosY value="8" />
+    <EditorCameraPosZ value="4" />
+    <GOLEditorCameraPosZ value="4" />
+    <EditorPerspectiveString value="layout2|name=CenterCanvas;caption=;state=17152;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Level Objects;caption=Level Objects;state=18876412;dir=4;layer=0;row=0;pos=0;prop=150567;bestw=160;besth=400;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Solution Browser;caption=Solution Browser;state=18876412;dir=4;layer=0;row=0;pos=1;prop=66204;bestw=160;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Game Objects;caption=Game Objects;state=18876412;dir=2;layer=0;row=0;pos=0;prop=121162;bestw=160;besth=300;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Curve Editor;caption=Curve Editor;state=18876412;dir=2;layer=0;row=0;pos=1;prop=33188;bestw=160;besth=300;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Object Properties;caption=Object Properties;state=18876412;dir=2;layer=0;row=0;pos=2;prop=147794;bestw=160;besth=300;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Console;caption=Console;state=18876412;dir=3;layer=0;row=2;pos=0;prop=100000;bestw=400;besth=60;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Terrain Builder;caption=Terrain Builder;state=18876412;dir=4;layer=0;row=0;pos=2;prop=83229;bestw=160;besth=600;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=tb1;caption=;state=2105984;dir=1;layer=10;row=0;pos=0;prop=100000;bestw=1152;besth=29;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tools;caption=;state=2106108;dir=1;layer=10;row=0;pos=1154;prop=100000;bestw=247;besth=26;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=GeometryTools;caption=;state=2106110;dir=1;layer=10;row=0;pos=0;prop=100000;bestw=145;besth=26;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=CameraTools;caption=;state=2106108;dir=1;layer=10;row=0;pos=1403;prop=100000;bestw=295;besth=26;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=22|dock_size(4,0,0)=362|dock_size(2,0,0)=339|dock_size(3,0,2)=181|dock_size(1,10,0)=31|" />
+    <MainWindow posX="-8" posY="-8" width="1936" height="1056" />
+    <Camera />
+    <LevelWindow activeColor="rgb(240, 240, 10)" inactiveColor="rgb(127, 127, 127)" maximizedWindow="0">
+        <FirstWindow CameraType="0" ShowGrid="1" ShowCovers="1" ShowCollision="1" ShowNavmesh="1" ShowGeometry="1" />
+        <SecondWindow CameraType="1" ShowGrid="1" ShowCovers="1" ShowCollision="1" ShowNavmesh="1" ShowGeometry="1" />
+        <ThirdWindow CameraType="3" ShowGrid="1" ShowCovers="1" ShowCollision="1" ShowNavmesh="1" ShowGeometry="1" />
+        <FourthWindow CameraType="5" ShowGrid="1" ShowCovers="1" ShowCollision="1" ShowNavmesh="1" ShowGeometry="1" />
+    </LevelWindow>
+    <GOLWindow posX="1" posY="30" width="1274" height="906" Selected="TerrainObject" CameraPos="2.886751, 2.886751, 2.886751" Perspective="layout2|name=Canvas;caption=Canvas;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=160;besth=600;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Objects;caption=Objects;state=16795644;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=160;besth=600;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Object Properties;caption=Object Properties;state=16779260;dir=2;layer=0;row=0;pos=0;prop=100000;bestw=160;besth=300;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Animation Controller;caption=Animation Controller;state=16779260;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=600;besth=300;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=162|dock_size(4,0,0)=218|dock_size(2,0,0)=521|dock_size(3,0,0)=230|" />
+    <MultiWindow posX="-8" posY="-8" width="1292" height="1000" />
+    <ScriptWindow posX="-1" posY="-1" width="1024" height="768" />
+    <ASLWindow posX="1" posY="30" width="1274" height="906" ASLPerspective="layout2|name=States Window;caption=States Window;state=18876412;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=-1;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Canvas;caption=Canvas;state=17152;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=State Properties Window;caption=State Properties;state=18876412;dir=2;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=-1;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Animation Properties Window;caption=Animation Properties;state=18876412;dir=2;layer=0;row=0;pos=1;prop=100000;bestw=200;besth=-1;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Event Properties Window;caption=Event Properties;state=18876412;dir=2;layer=0;row=0;pos=2;prop=100000;bestw=200;besth=-1;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Animations Triggers Notebook;caption=;state=18876412;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=-1;besth=320;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(4,0,0)=182|dock_size(5,0,0)=22|dock_size(2,0,0)=202|dock_size(3,0,0)=230|" />
+    <SpawnManagerWindow posX="-1" posY="-1" width="800" height="300" />
+    <Options BoxWireframe="0" CollisionWireframe="1" SelectBoundingBox="0" GridHideSmallCells="0" GridShowFull="0" GridSize="100" GridCellSize="50" GridGroupSize="5" AutolinkWaypoints="1" ShowAllLinks="0" ShowWpLineWithDepthTest="0" WpLineWithWidth="0" ShowVisibleLinks="0" DisableMipmaps="0" DisableFog="0" CenterOnDblClickWndw="1" CenterOnDblClickTree="1" ShowMenuOnSelect="1" RightClickSelect="1" AnimateObjects="1" BackupOnSave="1" AllowForceLevelLoad="0" AutoSave="1" AutoSaveInterval="180" RandomScaleOffset="20" RandomRotateOffset="180" SnapCollisionOffset="1000" UsePvx="0" ViewHiddenProperties="0" ViewSelectionProjection="0" CollisionDisplayType="Normal" GeometryDisplayType="Normal" NavmeshDisplayType="Normal" EditorBGColor="rgb(80, 80, 80)" GolBGColor="rgb(80, 80, 80)" GridUnits="5" SystemUnits="5" SystemUnitsScale="1" MinCenterCameraDistance="3" GOLMinCenterCameraDistance="3" />
+    <SceneOptimize HideSmallObjects="0" HideSmallObjectsSize="0" />
+    <TerrainGridDetail detail="2" lowColor="yellow" medColor="white" highColor="grey" />
+    <Shortcutmap>
+        <Shortcut NAME="New level" CTRL="1" ALT="0" SHIFT="0" KEY="78" />
+        <Shortcut NAME="Open level" CTRL="1" ALT="0" SHIFT="0" KEY="79" />
+        <Shortcut NAME="Save" CTRL="1" ALT="0" SHIFT="0" KEY="83" />
+        <Shortcut NAME="Save as.." CTRL="1" ALT="0" SHIFT="1" KEY="83" />
+        <Shortcut NAME="Reopen level" CTRL="1" ALT="0" SHIFT="0" KEY="82" />
+        <Shortcut NAME="Open solution" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Close solution" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Export level" CTRL="1" ALT="0" SHIFT="0" KEY="69" />
+        <Shortcut NAME="Export collisions" CTRL="1" ALT="0" SHIFT="0" KEY="76" />
+        <Shortcut NAME="Export navmesh" CTRL="1" ALT="0" SHIFT="0" KEY="77" />
+        <Shortcut NAME="Export dynamic occlusion" CTRL="1" ALT="0" SHIFT="0" KEY="68" />
+        <Shortcut NAME="Export obj file" CTRL="1" ALT="0" SHIFT="0" KEY="86" />
+        <Shortcut NAME="Export game obj lib &amp; header" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Edit game obj lib" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Edit component lib" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Exit" CTRL="0" ALT="1" SHIFT="0" KEY="343" />
+        <Shortcut NAME="Undo" CTRL="1" ALT="0" SHIFT="0" KEY="90" />
+        <Shortcut NAME="Redo" CTRL="1" ALT="0" SHIFT="0" KEY="89" />
+        <Shortcut NAME="Render viewport" CTRL="0" ALT="0" SHIFT="0" KEY="348" />
+        <Shortcut NAME="Bake lightmap" CTRL="0" ALT="0" SHIFT="0" KEY="349" />
+        <Shortcut NAME="Toggle level objects" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Toggle solution browser" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Toggle game objects" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Toggle object properties" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Toggle console" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Toggle curve editor" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Start Game" CTRL="0" ALT="0" SHIFT="0" KEY="344" />
+        <Shortcut NAME="Send level to device" CTRL="0" ALT="0" SHIFT="0" KEY="345" />
+        <Shortcut NAME="Cycle windows resolution" CTRL="0" ALT="0" SHIFT="0" KEY="346" />
+        <Shortcut NAME="Cycle display modes" CTRL="0" ALT="0" SHIFT="0" KEY="343" />
+        <Shortcut NAME="Irradiance Simulator 1" CTRL="1" ALT="0" SHIFT="0" KEY="344" />
+        <Shortcut NAME="Irradiance Simulator 2" CTRL="1" ALT="0" SHIFT="0" KEY="345" />
+        <Shortcut NAME="Irradiance Simulator 3" CTRL="1" ALT="0" SHIFT="0" KEY="346" />
+        <Shortcut NAME="Irradiance Simulator 4" CTRL="1" ALT="0" SHIFT="0" KEY="347" />
+        <Shortcut NAME="Selection mode" CTRL="0" ALT="0" SHIFT="0" KEY="81" />
+        <Shortcut NAME="Translation mode" CTRL="0" ALT="0" SHIFT="0" KEY="87" />
+        <Shortcut NAME="Rotation mode" CTRL="0" ALT="0" SHIFT="0" KEY="69" />
+        <Shortcut NAME="Uniform scale mode" CTRL="0" ALT="0" SHIFT="0" KEY="82" />
+        <Shortcut NAME="Non uniform scale mode" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Object align tool" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Toggle camera mode" CTRL="0" ALT="0" SHIFT="0" KEY="67" />
+        <Shortcut NAME="Toggle geometry mode" CTRL="0" ALT="0" SHIFT="0" KEY="-2" />
+        <Shortcut NAME="Toggle terrain mode" CTRL="0" ALT="0" SHIFT="0" KEY="66" />
+        <Shortcut NAME="View left" CTRL="0" ALT="0" SHIFT="0" KEY="76" />
+        <Shortcut NAME="View perspective" CTRL="0" ALT="0" SHIFT="0" KEY="80" />
+        <Shortcut NAME="View top" CTRL="0" ALT="0" SHIFT="0" KEY="84" />
+        <Shortcut NAME="View front" CTRL="0" ALT="0" SHIFT="0" KEY="70" />
+        <Shortcut NAME="Toggle animations" CTRL="0" ALT="0" SHIFT="0" KEY="32" />
+        <Shortcut NAME="Deselect" CTRL="0" ALT="0" SHIFT="0" KEY="68" />
+        <Shortcut NAME="Delete" CTRL="0" ALT="0" SHIFT="0" KEY="127" />
+        <Shortcut NAME="Delete alternative" CTRL="0" ALT="0" SHIFT="0" KEY="385" />
+        <Shortcut NAME="Copy Selected Object ID" CTRL="1" ALT="0" SHIFT="0" KEY="73" />
+        <Shortcut NAME="Clone selection" CTRL="0" ALT="1" SHIFT="0" KEY="67" />
+        <Shortcut NAME="Copy selection" CTRL="1" ALT="0" SHIFT="0" KEY="67" />
+        <Shortcut NAME="Copy selection alternative" CTRL="1" ALT="0" SHIFT="0" KEY="322" />
+        <Shortcut NAME="Paste selection" CTRL="1" ALT="0" SHIFT="0" KEY="86" />
+        <Shortcut NAME="Paste selection alternative" CTRL="0" ALT="0" SHIFT="1" KEY="322" />
+        <Shortcut NAME="Reset tools" CTRL="0" ALT="0" SHIFT="0" KEY="27" />
+        <Shortcut NAME="Toggle select on right click" CTRL="0" ALT="0" SHIFT="0" KEY="74" />
+        <Shortcut NAME="Toggle select menu" CTRL="0" ALT="0" SHIFT="0" KEY="85" />
+        <Shortcut NAME="Insert object template" CTRL="0" ALT="0" SHIFT="0" KEY="73" />
+        <Shortcut NAME="Insert object clone" CTRL="0" ALT="0" SHIFT="0" KEY="89" />
+        <Shortcut NAME="Script" CTRL="0" ALT="0" SHIFT="0" KEY="83" />
+        <Shortcut NAME="Mesh Info Window" CTRL="0" ALT="0" SHIFT="0" KEY="77" />
+    </Shortcutmap>
+    <SelectionMap />
+    <CameraLevel scheme="6">
+        <FOV min="0.000000" max="180.000000" value="90.000000" logarithmicScale="0" />
+        <FarClip min="0.000000" max="10000.000000" value="10000.000000" logarithmicScale="0" />
+        <ZNear min="1.000000" max="1.000000" value="1.000000" logarithmicScale="0" />
+        <PanSensitivity min="0.000000" max="100.000000" value="0.800000" logarithmicScale="0" />
+        <ZoomSensitivity min="0.000000" max="100.000000" value="0.800000" logarithmicScale="0" />
+        <RotateSensitivity min="1.000000" max="100.000000" value="1.881000" logarithmicScale="0" />
+    </CameraLevel>
+    <CameraSparks scheme="6">
+        <FOV min="0.000000" max="180.000000" value="90.000000" logarithmicScale="0" />
+        <FarClip min="0.000000" max="10000.000000" value="10000.000000" logarithmicScale="0" />
+        <ZNear min="1.000000" max="1.000000" value="1.000000" logarithmicScale="0" />
+        <PanSensitivity min="0.000000" max="100.000000" value="6.600000" logarithmicScale="0" />
+        <ZoomSensitivity min="0.000000" max="100.000000" value="6.600000" logarithmicScale="0" />
+        <RotateSensitivity min="1.000000" max="100.000000" value="2.376000" logarithmicScale="0" />
+    </CameraSparks>
+    <CameraGOL scheme="6">
+        <FOV min="0.000000" max="180.000000" value="90.000000" logarithmicScale="0" />
+        <FarClip min="0.000000" max="10000.000000" value="10000.000000" logarithmicScale="0" />
+        <ZNear min="1.000000" max="1.000000" value="1.000000" logarithmicScale="0" />
+        <PanSensitivity min="0.000000" max="100.000000" value="8.000000" logarithmicScale="0" />
+        <ZoomSensitivity min="0.000000" max="100.000000" value="50.000000" logarithmicScale="0" />
+        <RotateSensitivity min="1.000000" max="100.000000" value="10.000000" logarithmicScale="0" />
+    </CameraGOL>
+    <EffectsConfig version="2.21">
+        <WorkingDirectory path="F:\x\CPP\Puzzle_arena_ios\IPhone\trunk\Externals\ZoneBuild" />
+        <EffectsDirectory path="E:\FCEngine\FCEngine\trunk\FCEngine\Resource\effects\particle" />
+        <MaterialsDirectory path="" />
+        <TexturesDirectory path="" />
+        <LastEffectsFile path="E:\FCEngine\FCEngine\trunk\FCEngine\Resource\effects\particle/effects.xml" />
+        <BGColor value="rgb(80, 80, 80)" />
+        <BGImage value="" />
+        <ShowGrid value="1" />
+        <HasLoop value="0" />
+        <EnvMeshFile value="" />
+        <EnvAnimFile value="" />
+        <EnvPlayAnim value="" />
+        <EnvLoopAnim value="0" />
+        <EnvLinkNode value="" />
+        <EnvVisible value="0" />
+        <GameEmulator path="F:\x\CPP\Puzzle_arena_ios\IPhone\trunk\Externals\ZoneBuild/../../../trunk/build/Win32/N.O.V.A.3_Debug.exe" />
+        <Unit value="50.000000" />
+        <EditorPerspectiveString value="layout2|name=Project Window;caption=Project Window;state=16779262;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=160;besth=600;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Canvas;caption=Canvas;state=1792;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=160;besth=600;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=PSProperties;caption=PSProperties;state=16795646;dir=3;layer=0;row=3;pos=0;prop=100000;bestw=600;besth=800;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Time;caption=Time;state=18876415;dir=2;layer=0;row=0;pos=0;prop=100000;bestw=500;besth=150;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=75;floaty=75;floatw=516;floath=220|name=Export;caption=Export;state=18876415;dir=2;layer=0;row=0;pos=0;prop=100000;bestw=500;besth=150;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=100;floaty=100;floatw=516;floath=186|name=Scale;caption=Batch scale;state=18876415;dir=2;layer=0;row=0;pos=0;prop=100000;bestw=300;besth=450;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=125;floaty=125;floatw=316;floath=486|dock_size(5,0,0)=162|" />
+        <MainWindow posX="-8" posY="-8" width="1936" height="1056" />
+    </EffectsConfig>
+</Config>

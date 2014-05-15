@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<register>
+	<!-- Used by the CColladaConverter class while converting BDAE on the fly -->
+	<!-- Used by the CTextureConverter class while compressing texture on the fly -->
+	<key id="NetworkCachePath">
+		<!-- <string>\\10.137.15.200\everyone\glitch\glitchConfig\resource_cache</string> -->
+	</key>
+	
+	<!-- Used by the CColladaConverter class while converting BDAE on the fly -->
+	<!-- Used by the CTextureConverter class while compressing texture on the fly -->
+	<!-- Relative to the glitchConfig folder -->
+	<key id="LocalCachePath">
+		<!-- <string>resource_cache</string> -->
+	</key>
+</register>

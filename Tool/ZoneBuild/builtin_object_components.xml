@@ -1,0 +1,174 @@
+<?xml version="1.0" ?>
+<!-- Game Components Configuration File -->
+
+<!-- Property flags -->
+<!-- READONLY - can not be modified from editor -->
+<!-- FILE(extension1;extension2;...) - this is a file name -->
+<!-- LABELS(nameA, nameB, ....) - string to display in object properties for vector3d, quatenrion -->
+<!-- Property synchronization flags -->
+<!-- SYNC_POSITION - synchronized with object position -->
+<!-- SYNC_ROTATION - synchronized with object rotation -->
+<!-- SYNC_SCALE - synchronized with object scale -->
+<!-- SYNC_ID - synchronized with object id -->
+<!-- SYNC_MESHFILE - synchronized with object meshfile -->
+
+<components>
+	
+	<component name="BuiltinBox">
+		<property type="vector3d" name="Size" value="50, 50, 50" flags=""/>
+		<property type="enum" name="FaceTop" value="1" flags="ENUM(None; Exterior; Interior; Both Sides)"/>
+		<property type="color" name="FaceTopColor" value="255, 0, 0, 255" flags=""/>
+		<property type="enum" name="FaceBottom" value="1" flags="ENUM(None; Exterior; Interior; Both Sides)"/>
+		<property type="color" name="FaceBottomColor" value="255, 0, 0, 255" flags=""/>
+		<property type="enum" name="FaceSide1" value="1" flags="ENUM(None; Exterior; Interior; Both Sides)"/>
+		<property type="color" name="FaceSide1Color" value="255, 255, 0, 255" flags=""/>
+		<property type="enum" name="FaceSide2" value="1" flags="ENUM(None; Exterior; Interior; Both Sides)"/>
+		<property type="color" name="FaceSide2Color" value="255, 0, 255, 255" flags=""/>
+		<property type="enum" name="FaceSide3" value="1" flags="ENUM(None; Exterior; Interior; Both Sides)"/>
+		<property type="color" name="FaceSide3Color" value="255, 255, 0, 255" flags=""/>
+		<property type="enum" name="FaceSide4" value="1" flags="ENUM(None; Exterior; Interior; Both Sides)"/>
+		<property type="color" name="FaceSide4Color" value="255, 0, 255, 255" flags=""/>
+	</component>		
+
+	<component name="BuiltinPlane">
+		<property type="vector2d" name="Size" value="50, 50" flags=""/>
+		<property type="enum" name="Face" value="0" flags="ENUM(Exterior; Interior; Both Sides)"/>
+		<property type="color" name="PlaneColor" value="255, 0, 255, 255" flags=""/>
+	</component>		
+
+	<component name="BuiltinCylinder">
+		<property type="float" name="Radius" value="50" flags=""/>
+		<property type="float" name="Height" value="100" flags=""/>
+		<property type="bool" name="Closed" value="false" flags=""/>
+		<property type="enum" name="FaceTop" value="1" flags="ENUM(None; Exterior; Interior; Both Sides)"/>
+		<property type="color" name="FaceTopColor" value="255, 0, 0, 255" flags=""/>
+		<property type="enum" name="FaceBottom" value="1" flags="ENUM(None; Exterior; Interior; Both Sides)"/>
+		<property type="color" name="FaceBottomColor" value="255, 0, 0, 255" flags=""/>
+		<property type="int" name="Sectors" value="8" flags=""/>
+		<property type="int" name="SectorsEnabled" value="8" flags=""/>
+		<property type="enum" name="SectorsFace" value="1" flags="ENUM(None; Exterior; Interior; Both Sides)"/>
+		<property type="color" name="EvenSidesColor" value="255, 255, 0, 255" flags=""/>
+		<property type="color" name="OddSidesColor" value="255, 0, 255, 255" flags=""/>
+	</component>
+	
+	<component name="BuiltinSkyBox">
+		<property type="string" name="meshFile" value="" flags="SYNC_MESHFILE, FILE(Binary Collada files (*.bdae)|*.bdae)"/>
+	</component>
+	
+	<component name="BuiltinNavMesh">
+		<property type="string" name="meshFile" value="" flags="SYNC_MESHFILE, FILE(Binary Collada files (*.bdae)|*.bdae), DONT_EXPORT"/>
+	</component>
+	
+	<component name="BuiltinNavMeshAuto">
+		<property type="float" name="AgentHeight" value="300" flags="DONT_EXPORT"/>
+		<property type="float" name="AgentRadius" value="75" flags="DONT_EXPORT"/>
+		<property type="int" name="SlopeAngle" value="45" flags="DONT_EXPORT"/>
+		<property type="float" name="ClimbHeight" value="50" flags="DONT_EXPORT"/>
+		<property type="float" name="VCellSize" value="30" flags="DONT_EXPORT"/>
+		<property type="float" name="VCellHeight" value="20" flags="DONT_EXPORT"/>
+		<property type="float" name="MinRegionSize" value="5000" flags="DONT_EXPORT"/>
+		<property type="float" name="MergeRegionSize" value="5000" flags="DONT_EXPORT"/>
+		<property type="float" name="PortalLinkMaxDist" value="2" flags="DONT_EXPORT"/>
+		<property type="bool" name="Generate" value="" flags="DONT_EXPORT"/>
+	</component>
+	
+	<component name="BuiltinNavSpace">
+		<property type="float" name="DivSize" value="10" flags="DONT_EXPORT" description="Space division size"/>
+		<property type="float" name="AgentRadius" value="2" flags="DONT_EXPORT" description="Empty space shrink amount"/>
+		<property type="object" name="BoundObject" value="-1" flags="DONT_EXPORT, OBJ_TYPE(*)"/>
+		<property type="bool" name="Generate" value="" flags="DONT_EXPORT" description="Tick it to generate"/>
+	</component>
+
+	<component name="BuiltinTerrain">
+		<property type="vector2di" name="Size" value="80, 80" flags="LABELS(width; height)"/>
+		<property type="vector2di" name="Playable size" value="64, 64" flags="LABELS(width; height)"/>
+		<property type="float" name="Tile size" value="25.0"/>
+		<property type="float" name="Cliff height factor" value="0.4" flags="DONT_EXPORT"/>
+		<property type="string" name="Tileset" value="" flags="FILE(Binary Collada files (*.bdae)|*.bdae)"/>
+		<property type="vector2di" name="Minimap resolution" value="512, 512" flags="LABELS(width; height), DONT_EXPORT"/>
+		<property type="int" name="RTT texture size" value="1024" flags="DONT_EXPORT"/>
+		<property type="int" name="RTT tile size" value="32" flags="DONT_EXPORT"/>
+		<property type="vector3d" name="Light direction" value="0.5, 0.5, 0.5" flags="DONT_EXPORT"/>
+		<property type="color" name="Ambient color" value="150, 150, 150, 255" flags="DONT_EXPORT"/>
+		<property type="color" name="Diffuse color" value="255, 255, 255, 255" flags="DONT_EXPORT"/>
+	</component>		
+
+	<component name="BuiltinEffect">
+		<property type="string" name="Effect" value="" flags="SYNC_EFFECT , LIST"/>
+		<property type="string" name="EffectFile" value="" flags="FILE(Binary Collada files (*.bdae)|*.bdae)"/>
+		<property type="object" name="LinkTo" value="-1" flags="OBJ_TYPE(*), LINK_SELECTION"/>
+	        <property type="string" name="Dummy" value="" flags=""/>
+		<property type="bool" name="AutoStart" value="true"/>
+		<property type="bool" name="RmOnLowDevice" value="false" flags=""/>
+	</component>		
+	
+	<component name="BuiltinCollisionBox">
+		<property type="vector3d" name="Size" value="50, 50, 50" flags=""/>
+		<property type="enum" name="Type" value="1" flags="SYNC_COLLISION_FACES, ENUM(Ground; Solid; Walk; Wallrun; Beam; Pole; Ledge; Net; Ladder; Slide; Kill)"/>
+		<property type="enum" name="FaceTopType" value="1" flags="SYNC_COLLISION_COLOR, ENUM(Ground; Solid; Walk; Wallrun; Beam; Pole; Ledge; Net; Ladder; Slide; Kill)"/>
+		<property type="enum" name="FaceBottomType" value="1" flags="SYNC_COLLISION_COLOR, ENUM(Ground; Solid; Walk; Wallrun; Beam; Pole; Ledge; Net; Ladder; Slide; Kill)"/>
+		<property type="enum" name="FaceSide1Type" value="1" flags="SYNC_COLLISION_COLOR, ENUM(Ground; Solid; Walk; Wallrun; Beam; Pole; Ledge; Net; Ladder; Slide; Kill)"/>
+		<property type="enum" name="FaceSide2Type" value="1" flags="SYNC_COLLISION_COLOR, ENUM(Ground; Solid; Walk; Wallrun; Beam; Pole; Ledge; Net; Ladder; Slide; Kill)"/>
+		<property type="enum" name="FaceSide3Type" value="1" flags="SYNC_COLLISION_COLOR, ENUM(Ground; Solid; Walk; Wallrun; Beam; Pole; Ledge; Net; Ladder; Slide; Kill)"/>
+		<property type="enum" name="FaceSide4Type" value="1" flags="SYNC_COLLISION_COLOR, ENUM(Ground; Solid; Walk; Wallrun; Beam; Pole; Ledge; Net; Ladder; Slide; Kill)"/>
+	</component>
+	
+	<component name="BuiltinCollisionPlane">
+		<property type="vector2d" name="Size" value="50, 50" flags=""/>
+		<property type="enum" name="Face" value="0" flags="ENUM(Exterior; Interior; Both Sides)"/>
+		<property type="enum" name="FaceType" value="1" flags="SYNC_COLLISION_COLOR, ENUM(Ground; Solid; Walk; Wallrun; Beam; Pole; Ledge; Net; Ladder; Slide; Kill)"/>
+	</component>		
+	
+	<component name="BuiltinColors">
+		<!-- Collision type colors -->
+		<property type="color" name="Ground" value="255, 0, 255, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Solid" value="255, 0, 0, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Walk" value="0, 255, 0, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Wallrun" value="0, 0, 255, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Beam" value="0, 216, 255, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Pole" value="70, 0, 136, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Ledge" value="126, 50, 0, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Net" value="255, 146, 0, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Ladder" value="255, 246, 0, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Slide" value="11, 67, 0, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Kill" value="0, 0, 0, 255" flags="READONLY, DONT_EXPORT"/>
+
+		<!-- Waypoint type colors -->
+		<property type="color" name="Guard" value="255, 0, 255, 128" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Commoner" value="0, 255, 0, 128" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="Quest" value="0, 0, 255, 128" flags="READONLY, DONT_EXPORT"/>
+	</component>
+
+	<component name="BuiltinWaypointBox">
+		<property type="vector3d" name="Size" value="25, 25, 25" flags="DONT_EXPORT"/>
+		<property type="enum" name="Type" value="1" flags="DONT_EXPORT, ENUM(Guard; Commoner; Quest)"/>
+	</component>
+	
+	<component name="BuiltinCover">	
+		<property type="array" name="CoverPoints" value="0" flags="LABELS(CoverPoint)">
+			<property type="vector3d" name="Position" value="0, 0, 0" description="The cover point relative position to the object."/>
+			<property type="float" name="NormalAngle" value="0" description=""/>
+			<property type="float" name="StartCoverAngle" value="0" description=""/>
+			<property type="float" name="EndCoverAngle" value="0" description=""/>
+			<property type="bool" name="IsLowCover" value="false"/>
+			<property type="bool" name="IsJumpLowCover" value="false"/>
+			<property type="bool" name="LeanLeft" value="false"/>
+			<property type="bool" name="LeanRight" value="false"/>
+			<property type="float" name="DistToCover" value="0.5" flags="DONT_EXPORT"/>
+			<property type="float" name="DistToLeftCorner" value="0.5" flags="DONT_EXPORT"/>
+			<property type="float" name="DistToRightCorner" value="0.5" flags="DONT_EXPORT"/>
+		</property>
+	</component>
+
+	<component name="BuiltinIrradianceVolume">	
+		<property type="vector3d" name="Granularity" value="1, 1, 1" flags=""/>
+		<property type="color" name="BoxColor" value="128, 0, 0, 255" flags="READONLY, DONT_EXPORT"/>
+		<property type="color" name="CellColor" value="11, 67, 200, 255" flags="READONLY, DONT_EXPORT"/>
+	</component>
+
+	<component name="BuiltinGroup">	
+		<property type="bool" name="Enable" value="true"/>
+		<property type="bool" name="Export" value="false"/>
+	</component>
+	
+</components>

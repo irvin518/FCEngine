@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:ee9320d3f0d546d000071b70bc104c60$ -->
+<Imageset Name="Component" Imagefile="Component.png" NativeHorzRes="462" NativeVertRes="46" AutoScaled="false">
+    <Image Name="ConnectRect" XPos="307" YPos="2" Width="21" Height="37"/>
+    <Image Name="ConnectedDependency" XPos="440" YPos="24" Width="20" Height="20"/>
+    <Image Name="ConnectedDependencyList" XPos="436" YPos="2" Width="20" Height="20"/>
+    <Image Name="NormalArrow" XPos="361" YPos="2" Width="29" Height="24"/>
+    <Image Name="NormalLine" XPos="363" YPos="28" Width="31" Height="12"/>
+    <Image Name="RectBG" XPos="167" YPos="2" Width="138" Height="37"/>
+    <Image Name="SelectedArrow" XPos="330" YPos="2" Width="29" Height="24"/>
+    <Image Name="SelectedLine" XPos="330" YPos="28" Width="31" Height="12"/>
+    <Image Name="SelectedRect" XPos="2" YPos="2" Width="163" Height="41"/>
+    <Image Name="StrongDependency" XPos="418" YPos="24" Width="20" Height="20"/>
+    <Image Name="StrongDependencyList" XPos="414" YPos="2" Width="20" Height="20"/>
+    <Image Name="WeakDependency" XPos="396" YPos="24" Width="20" Height="20"/>
+    <Image Name="WeakDependencyList" XPos="392" YPos="2" Width="20" Height="20"/>
+</Imageset>

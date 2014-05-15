@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:8333b8f51c252e09df985718a2ffcfd2:01c8333c020dc8056496941d8a435edc:720e004b315eef48ae8b8a13f04e351a$ -->
+<Imageset Name="TestGUI" Imagefile="TestGUI.png" NativeHorzRes="1010" NativeVertRes="322" AutoScaled="false">
+    <Image Name="Heiti14" XPos="614" YPos="2" Width="256" Height="128"/>
+    <Image Name="Heiti20" XPos="425" YPos="189" Width="256" Height="128"/>
+    <Image Name="Heiti8" XPos="880" YPos="132" Width="128" Height="128"/>
+    <Image Name="Heiti9" XPos="872" YPos="2" Width="128" Height="128"/>
+    <Image Name="add_1" XPos="769" YPos="200" Width="25" Height="8"/>
+    <Image Name="add_2" XPos="769" YPos="190" Width="25" Height="8"/>
+    <Image Name="armour" XPos="896" YPos="262" Width="54" Height="47"/>
+    <Image Name="backpack" XPos="706" YPos="214" Width="56" Height="45"/>
+    <Image Name="bg" XPos="2" YPos="2" Width="421" Height="318"/>
+    <Image Name="button_1" XPos="666" YPos="160" Width="50" Height="23"/>
+    <Image Name="button_2" XPos="614" YPos="160" Width="50" Height="23"/>
+    <Image Name="buy_1" XPos="808" YPos="294" Width="36" Height="17"/>
+    <Image Name="buy_2" XPos="803" YPos="275" Width="36" Height="17"/>
+    <Image Name="buy_bg" XPos="425" YPos="2" Width="187" Height="185"/>
+    <Image Name="close_1" XPos="769" YPos="160" Width="22" Height="18"/>
+    <Image Name="close_2" XPos="683" YPos="185" Width="26" Height="20"/>
+    <Image Name="coin" XPos="683" YPos="207" Width="21" Height="21"/>
+    <Image Name="dart" XPos="803" YPos="160" Width="66" Height="57"/>
+    <Image Name="dimensity" XPos="846" YPos="275" Width="48" Height="45"/>
+    <Image Name="fonts_weapon_001-hd" XPos="614" YPos="132" Width="264" Height="26"/>
+    <Image Name="gloves" XPos="952" YPos="262" Width="42" Height="50"/>
+    <Image Name="helmet" XPos="764" YPos="214" Width="37" Height="45"/>
+    <Image Name="number" XPos="683" YPos="308" Width="96" Height="9"/>
+    <Image Name="shield" XPos="803" YPos="219" Width="54" Height="54"/>
+    <Image Name="slot" XPos="683" YPos="262" Width="118" Height="44"/>
+    <Image Name="sub_1" XPos="769" YPos="180" Width="25" Height="8"/>
+    <Image Name="sub_2" XPos="781" YPos="308" Width="25" Height="8"/>
+    <Image Name="sword" XPos="718" YPos="160" Width="49" Height="52"/>
+</Imageset>

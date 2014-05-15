@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tool", "Tool", "{C35E69B1-2F0F-45A0-B4F5-41CFD658BBBC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FCEngine", "FCEngine.vcxproj", "{E5F33C6D-D038-47B8-9B4A-B4A50EE22256}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "codereviewer", "Tool\CodeReviewer\codereviewer\codereviewer.vcxproj", "{C2ECA677-31B0-431F-8993-0B827CA24AEE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FCEngineEditor", "Tool\FCEngineEditor\FCEngineEditor.vcxproj", "{D103AAAA-25A7-482C-8BD5-CD46E8CD98AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E5F33C6D-D038-47B8-9B4A-B4A50EE22256} = {E5F33C6D-D038-47B8-9B4A-B4A50EE22256}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineSample", "Tool\EngineSample\EngineSample.vcxproj", "{8F3B37CB-EA60-461C-A822-B5B9EE9B65D8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E5F33C6D-D038-47B8-9B4A-B4A50EE22256} = {E5F33C6D-D038-47B8-9B4A-B4A50EE22256}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3DExporter", "Tool\3DExporter\3DExporter.vcxproj", "{FC5B608C-B4F5-44D0-A959-5FF798E1BF8D}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5F33C6D-D038-47B8-9B4A-B4A50EE22256}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E5F33C6D-D038-47B8-9B4A-B4A50EE22256}.Debug|Win32.Build.0 = Debug|Win32
+		{E5F33C6D-D038-47B8-9B4A-B4A50EE22256}.Debug|x64.ActiveCfg = Debug|Win32
+		{E5F33C6D-D038-47B8-9B4A-B4A50EE22256}.Release|Win32.ActiveCfg = Release|Win32
+		{E5F33C6D-D038-47B8-9B4A-B4A50EE22256}.Release|Win32.Build.0 = Release|Win32
+		{E5F33C6D-D038-47B8-9B4A-B4A50EE22256}.Release|x64.ActiveCfg = Release|Win32
+		{C2ECA677-31B0-431F-8993-0B827CA24AEE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C2ECA677-31B0-431F-8993-0B827CA24AEE}.Debug|Win32.Build.0 = Debug|Win32
+		{C2ECA677-31B0-431F-8993-0B827CA24AEE}.Debug|x64.ActiveCfg = Debug|Win32
+		{C2ECA677-31B0-431F-8993-0B827CA24AEE}.Release|Win32.ActiveCfg = Release|Win32
+		{C2ECA677-31B0-431F-8993-0B827CA24AEE}.Release|Win32.Build.0 = Release|Win32
+		{C2ECA677-31B0-431F-8993-0B827CA24AEE}.Release|x64.ActiveCfg = Release|Win32
+		{D103AAAA-25A7-482C-8BD5-CD46E8CD98AD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D103AAAA-25A7-482C-8BD5-CD46E8CD98AD}.Debug|Win32.Build.0 = Debug|Win32
+		{D103AAAA-25A7-482C-8BD5-CD46E8CD98AD}.Debug|x64.ActiveCfg = Debug|Win32
+		{D103AAAA-25A7-482C-8BD5-CD46E8CD98AD}.Release|Win32.ActiveCfg = Release|Win32
+		{D103AAAA-25A7-482C-8BD5-CD46E8CD98AD}.Release|Win32.Build.0 = Release|Win32
+		{D103AAAA-25A7-482C-8BD5-CD46E8CD98AD}.Release|x64.ActiveCfg = Release|Win32
+		{8F3B37CB-EA60-461C-A822-B5B9EE9B65D8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8F3B37CB-EA60-461C-A822-B5B9EE9B65D8}.Debug|Win32.Build.0 = Debug|Win32
+		{8F3B37CB-EA60-461C-A822-B5B9EE9B65D8}.Debug|x64.ActiveCfg = Debug|Win32
+		{8F3B37CB-EA60-461C-A822-B5B9EE9B65D8}.Release|Win32.ActiveCfg = Release|Win32
+		{8F3B37CB-EA60-461C-A822-B5B9EE9B65D8}.Release|Win32.Build.0 = Release|Win32
+		{8F3B37CB-EA60-461C-A822-B5B9EE9B65D8}.Release|x64.ActiveCfg = Release|Win32
+		{FC5B608C-B4F5-44D0-A959-5FF798E1BF8D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FC5B608C-B4F5-44D0-A959-5FF798E1BF8D}.Debug|Win32.Build.0 = Debug|Win32
+		{FC5B608C-B4F5-44D0-A959-5FF798E1BF8D}.Debug|x64.ActiveCfg = Debug|Win32
+		{FC5B608C-B4F5-44D0-A959-5FF798E1BF8D}.Release|Win32.ActiveCfg = Release|Win32
+		{FC5B608C-B4F5-44D0-A959-5FF798E1BF8D}.Release|Win32.Build.0 = Release|Win32
+		{FC5B608C-B4F5-44D0-A959-5FF798E1BF8D}.Release|x64.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C2ECA677-31B0-431F-8993-0B827CA24AEE} = {C35E69B1-2F0F-45A0-B4F5-41CFD658BBBC}
+		{D103AAAA-25A7-482C-8BD5-CD46E8CD98AD} = {C35E69B1-2F0F-45A0-B4F5-41CFD658BBBC}
+		{8F3B37CB-EA60-461C-A822-B5B9EE9B65D8} = {C35E69B1-2F0F-45A0-B4F5-41CFD658BBBC}
+		{FC5B608C-B4F5-44D0-A959-5FF798E1BF8D} = {C35E69B1-2F0F-45A0-B4F5-41CFD658BBBC}
+	EndGlobalSection
+EndGlobal

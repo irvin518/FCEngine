@@ -1,0 +1,17 @@
+#ifndef PLATFOEMDEFINE_INCLUDE
+#define PLATFORMDEFINE_INCLUDE
+
+#define PLATFORM_UNKONW 0
+#define PLATFORM_WIN32  1
+#define PLATFORM_MAC    2
+#define PLATFORM_IOS    3
+#define PLATFORM_BADA   4
+#define PLATFORM_NACL   5
+#define PLATFORM_WP8    6
+#define PLATFORM_WINRT  7
+
+#define FC_PLATFOEM PLATFORM_UNKONW
+
+
+
+#endif

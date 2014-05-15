@@ -1,0 +1,423 @@
+uniform float4x4 WorldViewProjectionMatrix : WorldViewProjection;
+
+//#if defined(LIGHTING) || defined(MULTITEXTURED)
+//uniform float4x4 matWorld           : matWorld;
+//#endif
+//#if defined(LIGHTING)
+//uniform float4x4 matWorldIT         : matWorldIT;
+//#endif
+//#if defined(LIGHTING)
+//uniform float4x4 matView            : matView;
+//#endif
+#if defined(LIGHTING) || defined(FOG)
+uniform float4x4 matWorldView       : matWolrdView;
+#endif
+#if defined(LIGHTING) || defined(MULTITEXTURED)
+uniform float4x4 matWorldViewIT     : matWorldViewIT;
+#endif //MULTITEXTURED
+
+#ifdef TEXTURED
+uniform float4x4 TexCoord0_transform : textureMatrix;
+#endif
+#ifdef LIGHTMAP
+#    ifdef TEXTURED
+#    define LightMapCoord TexCoord1
+#    define LightMapCoord_transform TexCoord1_transform
+uniform float4x4 TexCoord1_transform : textureMatrix;
+#    else
+#    define LightMapCoord TexCoord0
+#    define LightMapCoord_transform TexCoord0_transform
+uniform float4x4 TexCoord0_transform : textureMatrix;
+#    endif
+#endif
+
+#if defined(SKINNED)
+uniform float4x4 BoneMatrices[48];
+uniform float4 WeightMask;
+#elif defined(QUATSKINNED)
+uniform float4 BoneQuat0[96];
+uniform float4 BoneQuat1[96];
+uniform float4 WeightMask;
+#elif defined(TEXTURESKINNED)
+uniform sampler2D BoneTexture : TEXUNIT0;
+uniform float BoneTextureParams;
+uniform float4 WeightMask;
+#endif
+
+#ifdef FOG
+uniform float2 fogstartend;
+#endif
+
+#ifdef LIGHTING
+/*
+// Light0
+uniform float4 Light0Position;
+uniform float3 Light0Attenuation;
+uniform float4 Light0Ambientcolormultiplied;
+uniform float4 Light0Diffusecolormultiplied;
+uniform float4 Light0Specularcolormultiplied;
+*/
+#define MAX_LIGHT 1
+float4x4 matmodelview : matmodelview;
+struct SLight
+{
+    float4 position;
+    float3 attenuation;
+    float4 ambientcolor;
+    float4 diffusecolormultiplied;
+    float4 specularcolormultiplied;
+};
+SLight light[1];
+
+// MaterialColor
+uniform float4 AmbientColor;
+uniform float4 SpecularColor;
+uniform float4 EmissionColor;
+uniform float  Shininess;
+uniform float4 SceneAmbientLight;
+#endif //LIGHTING
+
+uniform float4 DiffuseColor;
+
+struct v2f
+{
+    float4 Position:    POSITION;
+    #ifdef TEXTURED
+    float2 TexCoord0:   TEXCOORD0;
+    #endif
+    #ifdef MULTITEXTURED
+    float2 TexCoord1:    TEXCOORD1;
+    #endif //MULTITEXTURED
+    #ifdef LIGHTMAP
+    float2 TexCoord2:   TEXCOORD2;
+    #endif
+    float4 Color:       COLOR;
+};
+
+float3 dqTransform(float4 dq0, float4 dq1, float3 v)
+{
+    float3 netPosition = v + 2.0 * cross(dq0.xyz, cross(dq0.xyz, v) + dq0.w * v);
+    netPosition += 2.0 * (dq0.w * dq1.xyz - dq1.w * dq0.xyz + cross(dq0.xyz, dq1.xyz));
+    return netPosition;
+}
+
+v2f VS(
+         float4 Position: POSITION
+       #ifdef TEXTURED
+       , float2 TexCoord0: TEXCOORD0
+       #endif
+       #ifdef LIGHTMAP
+       #ifdef TEXTURED
+       , float2 TexCoord1: TEXCOORD1
+       #else
+       , float2 TexCoord0: TEXCOORD0
+       #endif
+       #endif
+       , float4 color:COLOR
+       #ifdef FOG
+       , out float fogFactor
+       #    if __psp2__
+            : FOGC
+       #    endif
+       #endif
+       #if defined LIGHTING || defined MULTITEXTURED
+       , float3 normal : NORMAL
+       #endif
+       #if defined(SKINNED) || defined(QUATSKINNED) || defined(TEXTURESKINNED)
+        ,float4 SkinWeights
+        ,float4 SkinIndices
+       #endif
+       )
+{
+    v2f output;
+ 
+#if defined(SKINNED)
+    SkinWeights *= WeightMask;
+    float4 netPosition = float4(0.0, 0.0, 0.0, 0.0);
+#   if defined LIGHTING || defined MULTITEXTURED
+    float3 netNormal = float3(0.0, 0.0, 0.0);
+#   endif
+ 
+    for (int i = 0; i < 4; i++)
+    {
+        float index = SkinIndices[i];
+        netPosition += SkinWeights[i] * mul(BoneMatrices[index], Position);
+#   if defined LIGHTING || defined MULTITEXTURED
+        netNormal += SkinWeights[i] * mul(BoneMatrices[index], float4(normal.xyz, 1.0)).xyz;
+#   endif
+    }
+    output.Position = mul(WorldViewProjectionMatrix, netPosition);
+#   if defined LIGHTING || defined MULTITEXTURED
+    float3 transformedNormal = mul(matWorldViewIT, float4(netNormal, 0.0)).xyz;
+#   endif
+#   if defined LIGHTING
+    float4 worldViewPosition = mul(matWorldView, netPosition);
+#   endif
+#   ifdef FOG
+    float depth = dot(matWorldView[2], netPosition);
+#   endif
+ 
+#elif defined(QUATSKINNED)
+
+    //This version works, but very inefficient
+    SkinWeights *= WeightMask;
+    float3 netPosition = float3(0.0, 0.0, 0.0);
+#   if defined LIGHTING || defined MULTITEXTURED
+    float3 netNormal = float3(0.0, 0.0, 0.0);
+#   endif
+
+	// 0
+    float index = SkinIndices[0];
+    netPosition += dqTransform(BoneQuat0[index], BoneQuat1[index], Position.xyz) * SkinWeights[0];
+#   if defined LIGHTING || defined MULTITEXTURED
+    netNormal += dqTransform(BoneQuat0[index], BoneQuat1[index], normal.xyz) * SkinWeights[0];
+#   endif
+	// 1
+    index = SkinIndices[1];
+    netPosition += dqTransform(BoneQuat0[index], BoneQuat1[index], Position.xyz) * SkinWeights[1];
+#   if defined LIGHTING || defined MULTITEXTURED
+    netNormal += dqTransform(BoneQuat0[index], BoneQuat1[index], normal.xyz) * SkinWeights[1];
+#   endif
+	// 2
+    index = SkinIndices[2];
+    netPosition += dqTransform(BoneQuat0[index], BoneQuat1[index], Position.xyz) * SkinWeights[2];
+#   if defined LIGHTING || defined MULTITEXTURED
+    netNormal += dqTransform(BoneQuat0[index], BoneQuat1[index], normal.xyz) * SkinWeights[2];
+#   endif
+	// 3
+    index = SkinIndices[3];
+    netPosition += dqTransform(BoneQuat0[index], BoneQuat1[index], Position.xyz) * SkinWeights[3];
+#   if defined LIGHTING || defined MULTITEXTURED
+    netNormal += dqTransform(BoneQuat0[index], BoneQuat1[index], normal.xyz) * SkinWeights[3];
+#   endif
+
+    output.Position = mul(WorldViewProjectionMatrix, float4(netPosition,1.0));
+#   if defined LIGHTING || defined MULTITEXTURED
+    float3 transformedNormal = mul(matWorldViewIT, float4(netNormal, 0.0)).xyz;
+#   endif
+#   if defined LIGHTING
+    float4 worldViewPosition = mul(matWorldView, float4(netPosition,1.0));
+#   endif
+#   ifdef FOG
+    float depth = dot(matWorldView[2], float4(netPosition, 1));
+#   endif
+
+    //SkinWeights *= WeightMask;
+ 
+    //float index = SkinIndices[0];
+    //float4 bq0 = BoneQuat0[index];
+    //float4 blendedQuat0 = SkinWeights[0] * bq0;
+    //float4 blendedQuat1 = SkinWeights[0] * BoneQuat1[index];
+
+    //for(int i = 1; i < 4; ++i)
+    //{
+    //    index = SkinIndices[i];
+    //    float4 bqTemp0 = BoneQuat0[index];
+    //    float4 bqTemp1 = BoneQuat1[index];
+    //    float s = sign(dot(bq0, bqTemp0));
+    //    bqTemp0 *= s;
+    //    bqTemp1 *= s;
+    //    blendedQuat0 += SkinWeights[i] * bqTemp0;
+    //    blendedQuat1 += SkinWeights[i] * bqTemp1;
+    //}
+
+    //float len = length(blendedQuat0);
+    //blendedQuat0 /= len;
+    //blendedQuat1 /= len;
+
+    //float3 netPosition = dqTransform(blendedQuat0, blendedQuat1, Position.xyz);
+
+    //output.Position = mul(WorldViewProjectionMatrix, float4(netPosition,1));
+ 
+#elif defined(TEXTURESKINNED)
+
+    float4 uv_base = float4(BoneTextureParams * 0.5, BoneTextureParams * 1.5, BoneTextureParams * 2.5, BoneTextureParams * 4);
+
+    SkinWeights *= WeightMask;
+    float3 netPosition = float3(0.0, 0.0, 0.0);
+#   if defined LIGHTING || defined MULTITEXTURED
+    float3 netNormal = float3(0.0, 0.0, 0.0);
+#   endif
+
+    for (int i = 0; i < 4; i++)
+    {
+        float3x4 BoneMatrix;
+        float3 index = (SkinIndices[i] * uv_base.w).xxx + uv_base.xyz;
+
+        BoneMatrix[0] = tex2D(BoneTexture, index.xx);
+        BoneMatrix[1] = tex2D(BoneTexture, index.yy);
+        BoneMatrix[2] = tex2D(BoneTexture, index.zz);
+
+        netPosition += SkinWeights[i] * mul(BoneMatrix, Position);
+#   if defined LIGHTING || defined MULTITEXTURED
+        netNormal += SkinWeights[i] * mul(BoneMatrix, float4(normal,1.0)).xyz;
+#   endif
+    }
+
+    output.Position = mul(WorldViewProjectionMatrix, float4(netPosition, 1.0));
+#   if defined LIGHTING || defined MULTITEXTURED
+    float3 transformedNormal = mul(matWorldViewIT, float4(netNormal, 0.0)).xyz;
+#   endif
+#   if defined LIGHTING
+    float4 worldViewPosition = mul(matWorldView, float4(netPosition,1.0));
+#   endif
+    #ifdef FOG
+    float depth = dot(matWorldView[2], float4(netPosition, 1.0));
+    #endif
+ 
+#else //not skinned
+    output.Position = mul(WorldViewProjectionMatrix, Position);
+#   if defined LIGHTING || defined MULTITEXTURED
+    float3 transformedNormal = mul(matWorldViewIT, float4(normal, 0.0)).xyz;
+#   endif
+#   if defined LIGHTING
+    float4 worldViewPosition = mul(matWorldView, Position);
+#   endif
+#   ifdef FOG
+    float depth = dot(matWorldView[2], Position);
+#   endif
+#endif //SKINNED
+ 
+ 
+#ifdef TEXTURED
+    output.TexCoord0 = mul(TexCoord0_transform, float4(TexCoord0, 1.0, 0.0)).xy;
+#endif
+
+#ifdef MULTITEXTURED
+    float3 n = mul(matWorldViewIT, float4(transformedNormal, 0.0)).xyz;
+    output.TexCoord1.x = n.x * 0.5f + 0.5f;
+    output.TexCoord1.y = 0.5f - n.y * 0.5f;
+#endif //MULTITEXTURED
+
+#ifdef LIGHTMAP
+    output.TexCoord2 = mul(LightMapCoord_transform, float4(LightMapCoord, 1.0, 0.0)).xy;
+#endif
+
+    output.Color = color * DiffuseColor;
+
+#ifdef FOG
+    fogFactor = saturate((-depth - fogstartend[0])/(fogstartend[1] - fogstartend[0]));
+#endif
+
+#ifdef LIGHTING
+/*
+    // Lighting equation based on world space. Need to many matrices...
+    // Cant use with matrix-based Skin.  To investigate
+    float3 eye         = float3 (0.0, 0.0, 1.0);
+    float4 Ambient  = float4 (0.0, 0.0, 0.0, 0.0);
+    float4 Diffuse  = float4 (0.0, 0.0, 0.0, 0.0);
+    float4 Specular = float4 (0.0, 0.0, 0.0, 0.0);
+ 
+    // light 0 (point/directional light)
+    float3 Light0Vec = mul(matView, Light0Position).xyz - worldViewPosition.xyz * Light0Position.w;
+    float d = length(Light0Vec);  // Compute distance between surface and light position
+    float3 VP = normalize(Light0Vec);// Normalize the vector from surface to light position
+    float attenuation = 1.0 / (Light0Attenuation.x + Light0Attenuation.y * d + Light0Attenuation.z * d * d);
+    float3  halfVector = normalize(VP + eye);
+    float nDotVP = max(0.0, dot(transformedNormal, VP));
+    float nDotHV = max(0.0, dot(transformedNormal, halfVector));
+    float pf = ( nDotVP > 0.0 ? pow(nDotHV, max(Shininess, 0.0001)) : 0.0 );
+    Specular += Light0Specularcolormultiplied * pf * attenuation;
+    Ambient  += Light0Ambientcolormultiplied * attenuation;
+    Diffuse  += Light0Diffusecolormultiplied * nDotVP * attenuation;
+
+    float4 color_result = EmissionColor + (SceneAmbientLight + Ambient) * AmbientColor + Diffuse  * DiffuseColor + Specular * SpecularColor;
+    output.Color = clamp( color_result, 0.0, 1.0 );
+*/
+
+    // Keep this old lighting as we'd need to mare matrix slot for the above...
+    float3 color_result = SceneAmbientLight.rgb * AmbientColor.rgb;
+    float4 P = worldViewPosition;//mul(matWorldView, float4(Position.xyz, 1.0));
+    float4 N = float4(transformedNormal,0.0);//normalize(mul(matWorldView, float4(normal + Position.xyz,1.0)) - P);
+    float4 V = normalize(P);
+ 
+    float4 LP, L, H;
+    float d;
+    for(int i=0; i<MAX_LIGHT; ++i)
+    {
+        LP= mul(matWorldView, light[i].position);
+        L = normalize(LP - P * light[i].position.w);
+        H = normalize(L + V);
+        d = distance(P, LP);
+
+        float3 emissive = EmissionColor.rgb;
+        float3 ambient = AmbientColor.rgb * light[i].ambientcolor.rgb;
+        float diffuseLight = max(dot(N, L), 0.0);
+        float3 diffuse = DiffuseColor.rgb * light[i].diffusecolormultiplied.rgb * diffuseLight;
+        float specularLight = pow(max(dot(N, H), 0.0), max(Shininess, 0.0001));
+        if(diffuseLight <= 0.0)
+        {
+            specularLight = 0.0;
+        }
+        float3 specular =  SpecularColor.rgb * light[i].specularcolormultiplied.rgb * specularLight;
+        float attenuationfactor = 1.0 /  (light[i].attenuation.x +
+                                          light[i].attenuation.y * d +
+                                          light[i].attenuation.z * d * d);
+        color_result.rgb += emissive.rgb
+                            + ambient
+                            + attenuationfactor * (diffuse + specular);
+    }
+    output.Color.rgb = color_result.rgb;
+    output.Color.a = 1.0;
+#endif //LIGHTING
+
+    return output;
+}
+
+#ifdef TEXTURED
+uniform sampler2D Sampler0 : TEXUNIT1;
+#endif
+#ifdef MULTITEXTURED
+uniform sampler2D Sampler1 : TEXUNIT2;
+uniform float envmapIntensity;
+#endif //MULTITEXTURED
+#ifdef LIGHTMAP
+uniform sampler2D Sampler2 : TEXUNIT2;
+#endif
+
+#if __psp2__ && defined(ALPHATEST)
+uniform float AlphaRef;
+#endif
+
+#ifdef FOG
+uniform float4 fogcolor;
+#endif
+
+float4 FS(
+  v2f input
+#ifdef FOG
+, float fogFactor
+#    if __psp2__
+    : FOGC
+#    endif
+#endif
+) : COLOR
+{
+    float4 color = input.Color;
+#if defined(TEXTURED)
+    color *= tex2D(Sampler0, input.TexCoord0.xy);
+#endif
+#if __psp2__ && defined(ALPHATEST)
+	if (color.a <= AlphaRef)
+	{
+		discard;
+	}
+#endif
+#if defined(LIGHTMAP)
+    color *= tex2D(Sampler2, input.TexCoord2.xy);
+#endif
+#if defined(MULTITEXTURED)
+    color.xyz += tex2D(Sampler1, input.TexCoord1.xy).xyz * envmapIntensity;
+#endif //MULTITEXTURED
+
+#ifdef FOG
+  #ifdef ADDITIVEBLEND
+	float fogFinal = fogFactor * length(color.xyz) * color.a;
+    color.xyz = lerp(color.xyz, float3(0.0, 0.0, 0.0), fogFinal);
+  #else
+    color.xyz = lerp(color.xyz, fogcolor.xyz, fogFactor);
+  #endif	
+#endif
+
+    return color;
+}

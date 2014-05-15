@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<NodeTemplateList>
+
+<Node id="1"> 
+	<Name>BlendByIdle</Name>
+	<Type>State</Type>
+	<Output>Out</Output>
+	<Input>
+		<Name>Idle</Name>
+	</Input>
+	<Input>
+		<Name>Non Idle</Name>
+	</Input>
+	<State>Idle</State>
+</Node>
+<Node id="2">
+	<Name>Blend</Name>
+	<Export node="node" type="mixer" />
+	
+	<Type>Blend</Type>
+	<Output>Out</Output>
+	<Input>
+		<Name>Input A</Name>
+	</Input>
+	<Input>
+		<Name>Input B</Name>
+	</Input>
+</Node>
+
+<Node id="3">
+	<Name>Input</Name>
+	<Output>Out</Output>
+	<Type>Input</Type>
+	<Export node="animator" />
+</Node>
+
+
+<Node id="4">
+	<Name>Output</Name>
+	<Input>
+		<Name>Out</Name>
+	</Input>
+	<Type>Output</Type>
+	<Export node="animator" />
+</Node>
+
+<Node id="5">
+	<Name>Additive Blend</Name>
+	<Export node="node" type="mixer" />
+	
+	<Type>Additive</Type>
+	<Output>Out</Output>
+	<Input>
+		<Name>Base</Name>
+	</Input>
+	<Input>
+		<Name>Add</Name>
+	</Input>
+</Node>
+
+<Node id="6">
+	<Name>Filter</Name>	
+	<Type>TrackBlend</Type>
+	<Output>Out</Output>
+	<Input>
+		<Name>Input A</Name>
+	</Input>
+	<Input>
+		<Name>Input B</Name>
+	</Input>
+</Node>
+
+</NodeTemplateList>
