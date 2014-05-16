@@ -130,7 +130,6 @@ protected:
     void OnSearchTextUpdate( wxCommandEvent& event );
     void OnAuiButton(wxCommandEvent& event);
     void OnTemplateComponentItemChanged(wxTreeEvent& event);
-    void OnSplitterSashDClick(wxSplitterEvent& event);
     void OnTreeCtrlExpanded(wxTreeEvent& event);
     void OnTreeCtrlCollapsed(wxTreeEvent& event);
     void OnEditTreeItemLabel(wxTreeEvent& event);

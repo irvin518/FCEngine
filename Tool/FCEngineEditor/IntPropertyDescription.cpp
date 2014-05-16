@@ -2,6 +2,8 @@
 #include "IntPropertyDescription.h"
 #include "Utility/BeatsUtility/StringHelper.h"
 #include "Utility/BeatsUtility/Serializer.h"
+#include <wx/propgrid/propgrid.h>
+#include <wx/propgrid/advprops.h>
 
 CIntPropertyDescription::CIntPropertyDescription(CSerializer* pSerializer)
 : super(eRPT_Int)

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:8d92e363c1872c85c80344aad13e210f$ -->
+<Imageset Name="testtank2" Imagefile="testtank2.png" NativeHorzRes="256" NativeVertRes="512" AutoScaled="false">
+    <Image Name="body_1" XPos="2" YPos="2" Width="155" Height="141"/>
+    <Image Name="body_2" XPos="2" YPos="145" Width="114" Height="118"/>
+    <Image Name="bullet_1" XPos="118" YPos="145" Width="23" Height="43"/>
+    <Image Name="bullet_2" XPos="235" YPos="2" Width="7" Height="15"/>
+    <Image Name="head_1" XPos="159" YPos="2" Width="74" Height="78"/>
+    <Image Name="head_2" XPos="159" YPos="82" Width="71" Height="92"/>
+    <Image Name="jiqiang" XPos="143" YPos="176" Width="100" Height="98"/>
+</Imageset>

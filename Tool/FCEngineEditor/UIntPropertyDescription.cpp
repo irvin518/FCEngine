@@ -2,6 +2,8 @@
 #include "UIntPropertyDescription.h"
 #include "Utility/BeatsUtility/StringHelper.h"
 #include "Utility/BeatsUtility/Serializer.h"
+#include <wx/propgrid/propgrid.h>
+#include <wx/propgrid/advprops.h>
 
 CUIntPropertyDescription::CUIntPropertyDescription(CSerializer* pSerializer)
 : super(eRPT_UInt)

@@ -11,7 +11,7 @@ public:
     virtual ~CRecover();
     virtual void ReflectData(CSerializer& serializer) override;
 public:
-    virtual void Execute(CTank& tank);
+    virtual void Execute(SAIPackage& package);
 private:
     kmScalar m_fRecoverHP;
 };

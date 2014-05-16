@@ -23,6 +23,7 @@ public:
     virtual ~CModel();
 
     virtual void ReflectData(CSerializer& serializer) override;
+    virtual bool OnPropertyChange(void* pVariableAddr, void* pNewValueToBeSet) override;
     bool Init();
     void PlayAnimationById(long id, float fBlendTime, bool bLoop);
     void PlayAnimationByName(const char *name, float fBlendTime, bool bLoop);
@@ -51,6 +52,15 @@ private:
     SharePtr<CSkin> m_pSkin;
     std::vector<SharePtr<CTexture> > m_textures;
     std::map<long, SharePtr<CAnimation> > m_animations;
+
+    TString m_strSelAnimtaionName;
+    std::vector<SReflectFilePath> m_animationNamePathList;
+    std::vector<TString> m_animationNameList;
+    bool m_bPlayAnimation;
+    bool m_bInit;
+
+    SReflectFilePath m_strSkeleton;
+    SReflectFilePath m_strSkin;
 };
 
 #endif

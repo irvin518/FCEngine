@@ -16,7 +16,7 @@ void CDie::ReflectData(CSerializer& serializer)
     super::ReflectData(serializer);
 }
 
-void CDie::Execute(CTank& tank)
+void CDie::Execute(SAIPackage& package)
 {
-    tank.Die();
+    package.pSourceObj->Die();
 }

@@ -43,7 +43,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
     <IntDir>$(Configuration).win32\</IntDir>
-    <IncludePath>..\..\FCEngine\cocos2d-x-3.0beta2\cocos\math\kazmath\include;Tool\DEMO\Game;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\FCEngine\cocos2d-x-3.0beta2\cocos\math\kazmath\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -57,15 +57,15 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>\Game\TankComponent;..\..\..\cocos2d-x-3.0rc1\cocos\2d\platform\win32;..\..\..\cocos2d-x-3.0rc1\cocos\2d\platform\;..\..\..\cocos2d-x-3.0rc1\cocos\;..\..\..\cocos2d-x-3.0rc1\cocos\2d;..\..\..\cocos2d-x-3.0rc1\cocos\base;..\..\..\cocos2d-x-3.0rc1\external\win32-specific\gles\include\OGLES;..\..\..\cocos2d-x-3.0rc1\external\glfw3\include\win32\;..\..\Lib\wxWidgets_3_0\include;..\..\Lib\wxWidgets_3_0\include\msvc;..\..\Lib;..\..\SourceCode\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Tool;..\..\include\;..\..\Include\glfw3\include\win32;..\..\include\platform\win32;..\..\Include\platform\win32\gles\include\OGLES;..\..\Lib\wxWidgets_3_0\include;..\..\Lib\wxWidgets_3_0\include\msvc;..\..\Lib;..\..\SourceCode\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\..\Lib\Windebuggingtool\lib\i386;..\..\Debug.win32;..\..\Lib\Beats;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libchipmunk.lib;libAudio.lib;libcocos2d.lib;libBox2D.lib;FCEngine.lib;glfw3.lib;glew32.lib;Utility_d.lib;opengl32.lib;libzlib.lib;libpng.lib;libjpeg.lib;libtiff.lib;libwebp.lib;libiconv.lib;freetype250.lib;winmm.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;dbghelp.lib;components_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libBox2D.lib;FCEngine.lib;glfw3.lib;glew32.lib;Utility_d.lib;opengl32.lib;libzlib.lib;libpng.lib;libjpeg.lib;libtiff.lib;libwebp.lib;libiconv.lib;freetype250.lib;winmm.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;dbghelp.lib;components_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib;libcmtd.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
@@ -78,7 +78,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\..\cocos2d-x-3.0rc1\cocos\2d\platform\win32;..\..\..\cocos2d-x-3.0rc1\cocos\2d\platform\;..\..\..\cocos2d-x-3.0rc1\cocos\;..\..\..\cocos2d-x-3.0rc1\cocos\2d;..\..\..\cocos2d-x-3.0rc1\cocos\base;..\..\..\cocos2d-x-3.0rc1\external\win32-specific\gles\include\OGLES;..\..\..\cocos2d-x-3.0rc1\external\glfw3\include\win32\;..\..\Lib\wxWidgets_3_0\include;..\..\Lib\wxWidgets_3_0\include\msvc;..\..\Lib;..\..\SourceCode\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\;..\..\Include\glfw3\include\win32;..\..\include\platform\win32;..\..\Include\platform\win32\gles\include\OGLES;..\..\Lib\wxWidgets_3_0\include;..\..\Lib\wxWidgets_3_0\include\msvc;..\..\Lib;..\..\SourceCode\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
@@ -96,16 +96,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEMO.h" />
+    <ClInclude Include="GLES-Render.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="TestFan.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DEMO.cpp" />
+    <ClCompile Include="GLES-Render.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="TestFan.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DEMO.rc" />

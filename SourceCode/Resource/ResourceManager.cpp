@@ -147,3 +147,23 @@ void CResourceManager::LoadResourceThreadFunc(CResourceManager* pMgr)
         }   
     }
 }
+
+bool CResourceManager::QueryResource(const TString& fileName, SharePtr<CResource>& output) const
+{
+    TResourceNameMap::const_iterator iter = m_resource.find(fileName);
+    bool bRet = iter != m_resource.end();
+    if (bRet)
+    {
+        output = iter->second;
+    }
+    return bRet;
+}
+
+TString CResourceManager::GetFullPath(const TString &strFileName, EResourceType type) const
+{
+    CResourcePathManager::EResourcePathType pathType = 
+        CResourcePathManager::GetInstance()->GetResourcePathType(type);
+    TString strPath = CResourcePathManager::GetInstance()->GetResourcePath(pathType);
+    strPath.append(strFileName);
+    return strPath;
+}

@@ -3,6 +3,8 @@
 #include "Utility/BeatsUtility/StringHelper.h"
 #include "Utility/BeatsUtility/Serializer.h"
 #include <float.h>
+#include <wx/propgrid/propgrid.h>
+#include <wx/propgrid/advprops.h>
 
 CDoublePropertyDescription::CDoublePropertyDescription(CSerializer* pSerializer)
 : super(eRPT_Double)

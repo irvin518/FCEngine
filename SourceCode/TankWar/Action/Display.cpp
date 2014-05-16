@@ -16,7 +16,7 @@ void CDisplay::ReflectData(CSerializer& serializer)
     super::ReflectData(serializer);
 }
 
-void CDisplay::Execute(CTank& tank)
+void CDisplay::Execute(SAIPackage& package)
 {
-
+    package.pSourceObj->Display();
 }

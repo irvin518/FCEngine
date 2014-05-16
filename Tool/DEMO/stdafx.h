@@ -17,26 +17,25 @@
 #include <memory.h>
 #include <tchar.h>
 #include <thread>
-#include "CCConsole.h"
-#include "CCGeometry.h" //TODO: For to use some basic data type, such as "Size" "Rect"
-#include "ccUtils.h"
 // TODO: reference additional headers your program requires here
 // STL Headers
 #include <vector>
 #include <map>
 #include <list>
+#include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
 
-#include "GL/glew.h"
+#include "PlatformConfig.h"
 #include "glfw3.h"
-#include "PublicDef.h"
 #include "math/kazmath/kazmath/GL/matrix.h"
 #include "math/kazmath/kazmath/mat4.h"
 #include "math/kazmath/kazmath/vec4.h"
 #include "math/kazmath/kazmath/vec3.h"
 #include "math/kazmath/kazmath/vec2.h" 
-#include "Utility/BeatsUtility/SharePtr.h"
+
+#include "PublicDef.h"
 
 #include "Render/RenderPublic.h"
 #include "Resource/ResourcePublic.h"
-#include "Utility/BeatsUtility/ComponentSystem/ComponentPublic.h"
 #include "Utility/BeatsUtility/SharePtr.h"

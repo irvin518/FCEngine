@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Resource.h"
+#include "ResourceManager.h"
 
 CResource::CResource()
     : m_bIsLoaded(false)
@@ -30,6 +31,43 @@ void CResource::SetFilePath(const TString& str)
 void CResource::SetLoadedFlag(bool bFlag)
 {
     m_bIsLoaded = bFlag;
+}
+
+bool CResource::OnPropertyChange(void* pVariableAddr, void* pNewValueToBeSet)
+{
+    bool bRet = false;
+    if (!super::OnPropertyChange(pVariableAddr, pNewValueToBeSet))
+    {
+        if (pVariableAddr == &m_strPath)
+        {
+            if (m_strPath.m_value.length() > 0) //change path
+            {
+                SharePtr<CResource> pRet;
+                bool bResourceExists = CResourceManager::GetInstance()->QueryResource(m_strPath.m_value, pRet);
+                if (bResourceExists)
+                {
+                    BEATS_ASSERT(pRet.Get() == this);
+                    CResourceManager::GetInstance()->UnregisterResource(pRet);
+                    pRet->Unload();
+                }
+                DeserializeVarialble(pRet->m_strPath, (CSerializer*)pNewValueToBeSet);
+                if(pRet->m_strPath.m_value.length() > 0)
+                {
+                    pRet->SetFilePath(CResourceManager::GetInstance()->
+                        GetFullPath(pRet->m_strPath.m_value, pRet->GetType()));
+                    CResourceManager::GetInstance()->LoadResource(pRet, false);
+                }
+            }
+            else    //first set path
+            {
+                DeserializeVarialble(m_strPath, (CSerializer*)pNewValueToBeSet);
+                SetFilePath(CResourceManager::GetInstance()->GetFullPath(m_strPath.m_value, GetType()));
+                CResourceManager::GetInstance()->LoadResource(this, false);
+            }
+            bRet = true;
+        }
+    }
+    return bRet;
 }
 
 bool CResource::IsLoaded() const

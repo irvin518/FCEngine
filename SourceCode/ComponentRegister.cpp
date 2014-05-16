@@ -51,6 +51,7 @@
 #include "ParticlesSystem/ParticleEmitterEntity.h"
 
 #include "SkeletalAnimation/CAnimationModel.h"
+
 //TankWar
 #include "TankWar/TankComponent/Tank.h"
 #include "TankWar/TankComponent/Pedestal.h"
@@ -105,7 +106,7 @@ REGISTER_COMPONENT(CTextureFragDescription, _T("TextureFragDescription"), _T("Re
 
 REGISTER_COMPONENT(CRenderState, _T("‰÷»æ◊¥Ã¨"), _T("Render\\‰÷»æ◊¥Ã¨"))
 
-REGISTER_COMPONENT(_2DSkeletalAnimation::CAnimationModel,_T("CAnimationModel"),_T("2DSkeletalAnimation\\CAnimationModel"));
+REGISTER_COMPONENT(_2DSkeletalAnimation::CAnimationModel,_T("CAnimationModel"),_T("2DSkeletalAnimation"));
 
 REGISTER_COMPONENT(CBoolRenderStateParam, _T("CBoolRenderStateParam"), _T("Render\\‰÷»æ◊¥Ã¨¿‡–Õ"))
 REGISTER_COMPONENT(CUintRenderStateParam, _T("CUintRenderStateParam"), _T("Render\\‰÷»æ◊¥Ã¨¿‡–Õ"))

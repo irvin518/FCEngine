@@ -16,7 +16,7 @@ void CHide::ReflectData(CSerializer& serializer)
     super::ReflectData(serializer);
 }
 
-void CHide::Execute(CTank& tank)
+void CHide::Execute(SAIPackage& package)
 {
-
+    package.pSourceObj->Hide();
 }

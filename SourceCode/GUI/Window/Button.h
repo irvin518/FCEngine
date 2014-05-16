@@ -14,6 +14,9 @@ namespace FCGUI
         {
             eET_EVENT_BUTTON = FCGUI::eGUIET_EVENT_BUTTON,
             eET_EVENT_CLICKED,
+            eET_EVENT_TOUCHDOWN,
+            eET_EVENT_TOUCHUP,
+            eET_EVENT_MOVE,
         };
 
         enum EStateType

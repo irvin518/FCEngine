@@ -2,6 +2,7 @@
 #include "StringPropertyDescription.h"
 #include "Utility/BeatsUtility/StringHelper.h"
 #include "Utility/BeatsUtility/Serializer.h"
+#include <wx/propgrid/propgrid.h>
 
 CStringPropertyDescription::CStringPropertyDescription(CSerializer* pSerializer)
 : super(eRPT_Str)

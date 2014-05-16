@@ -17,8 +17,8 @@ void CMove::ReflectData(CSerializer& serializer)
     DECLARE_PROPERTY(serializer, m_direction, true, 0xFFFFFFFF, _T("ÒÆ¶¯·½Ïò"), NULL, NULL, NULL);
 }
 
-void CMove::Execute(CTank& tank)
+void CMove::Execute(SAIPackage& package)
 {
-    tank.GetPedesta()->Move(m_direction);
+    package.pSourceObj->GetPedesta()->Move(m_direction);
 }
 

@@ -32,6 +32,9 @@ public:
     void Hurt(kmScalar fHurtData);
     void Die();
     bool IsDie();
+    void Display();
+    void Hide();
+    void UseItem(int iItemId);
     void Recover(kmScalar fRecoverHP);
 private:
     CPedesta* m_pPedesta;

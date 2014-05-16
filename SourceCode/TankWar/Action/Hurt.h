@@ -12,7 +12,7 @@ public:
 
     virtual void ReflectData(CSerializer& serializer) override;
 public:
-    virtual void Execute(CTank& tank);
+    virtual void Execute(SAIPackage& package);
 
 private:
 

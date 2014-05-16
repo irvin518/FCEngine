@@ -3,6 +3,7 @@
 #include "Utility/BeatsUtility/StringHelper.h"
 #include "Utility/BeatsUtility/Serializer.h"
 #include <shlwapi.h>
+#include <wx/propgrid/propgrid.h>
 
 CFilePropertyDescription::CFilePropertyDescription(CSerializer* pSerializer)
     : super(eRPT_File)

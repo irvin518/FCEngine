@@ -24,7 +24,7 @@ bool CSkin::Load()
     BEATS_ASSERT(!IsLoaded(), _T("Can't Load a skin which is already loaded!"));
 
     // Load From File
-    CSerializer serializer(_T("..\\Resource\\skin\\org.skin"));
+    CSerializer serializer(GetFilePath().c_str());
     CSerializer tmpVerticesBufferPos, tmpVerticesBufferUV;
     CSerializer indexBuffer;
     size_t uVertexCount = 0;

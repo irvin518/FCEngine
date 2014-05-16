@@ -217,6 +217,12 @@
     <Filter Include="头文件\Utility\MemoryDetector">
       <UniqueIdentifier>{88c0fab9-474b-4871-951f-e6b4ec36b0ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Scene">
+      <UniqueIdentifier>{e0863564-b567-4b42-ad29-9ef853601585}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Scene">
+      <UniqueIdentifier>{26cd832f-eab3-4d14-8bdb-3bfadbe764ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -774,11 +780,17 @@
     <ClCompile Include="SourceCode\Event\CTouchDelegate.cpp">
       <Filter>源文件\Event</Filter>
     </ClCompile>
-    <ClCompile Include="SourceCode\Event\CTouch.cpp">
+    <ClCompile Include="SourceCode\Resource\ResourceShlwapiManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SourceCode\Scene\CTerrain2DData.cpp">
+      <Filter>源文件\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\Event\CTouch.cpp">
+      <Filter>源文件\Event</Filter>
+    </ClCompile>
     <ClCompile Include="SourceCode\Event\CTouchEvent.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1451,14 +1463,38 @@
     <ClInclude Include="SourceCode\Event\CTouchDelegate.h">
       <Filter>头文件\Event</Filter>
     </ClInclude>
-    <ClInclude Include="SourceCode\Event\CTouch.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="SourceCode\Render\TextureFragDescription.h">
       <Filter>头文件\Render</Filter>
     </ClInclude>
     <ClInclude Include="SourceCode\TankWar\TankComponent\AdditiveAttribute.h">
       <Filter>头文件\TankWar\TankComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\Resource\ResourceShlwapiManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\Scene\CSceneManager.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\Scene\CScene.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\Scene\CNode.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\Event\CTouch.h">
+      <Filter>头文件\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\Scene\CNode2D.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\Scene\CTerrain2D.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\Scene\CTerrain2DData.h">
+      <Filter>头文件\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\Scene\CLayer.h">
+      <Filter>头文件\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

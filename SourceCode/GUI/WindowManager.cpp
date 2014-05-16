@@ -74,11 +74,7 @@ CWindow *CWindowManager::Create(const TString &name, EWindowType type, CWindow *
             window->SetRenderer(itr->second->Create());
         }
 
-        if(!parent && m_pRootWindow)
-        {
-            parent = m_pRootWindow;
-        }
-        if(parent)
+        if(parent && parent != window->Parent())
             parent->AddChild(window);
 
         m_managedWindowList.push_back(window);

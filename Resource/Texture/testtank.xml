@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:0c6c0d81a183429cbb74887c23755adb:c1b7be686f6567d7cef6982264f7a344:1b9722b3a6ff3043166126e53a8075bb$ -->
+<Imageset Name="testtank" Imagefile="testtank.png" NativeHorzRes="1720" NativeVertRes="1420" AutoScaled="false">
+    <Image Name="Button2" XPos="1605" YPos="75" Width="106" Height="71"/>
+    <Image Name="Button2_down" XPos="1605" YPos="2" Width="106" Height="71"/>
+    <Image Name="Button91" XPos="1401" YPos="1332" Width="50" Height="50"/>
+    <Image Name="Button91_down" XPos="1401" YPos="1280" Width="50" Height="50"/>
+    <Image Name="Control_Back" XPos="1313" YPos="1132" Width="146" Height="146"/>
+    <Image Name="Control_Button" XPos="1591" YPos="1132" Width="86" Height="86"/>
+    <Image Name="Control_Button_down" XPos="1313" YPos="1280" Width="86" Height="86"/>
+    <Image Name="GameName" XPos="1284" YPos="449" Width="434" Height="195"/>
+    <Image Name="LittleHelper" XPos="1591" YPos="1220" Width="85" Height="85"/>
+    <Image Name="LoginBackHD" XPos="2" YPos="2" Width="1280" Height="768"/>
+    <Image Name="Loli" XPos="1313" YPos="685" Width="319" Height="445"/>
+    <Image Name="Loli1" XPos="1284" YPos="2" Width="319" Height="445"/>
+    <Image Name="MainHP" XPos="1284" YPos="668" Width="130" Height="15"/>
+    <Image Name="MainSlot" XPos="1284" YPos="646" Width="136" Height="20"/>
+    <Image Name="MapMain" XPos="1591" YPos="1307" Width="98" Height="72"/>
+    <Image Name="NewAnimation0" XPos="1461" YPos="1262" Width="128" Height="128"/>
+    <Image Name="NewAnimation20" XPos="1461" YPos="1132" Width="128" Height="128"/>
+    <Image Name="null" XPos="1284" YPos="685" Width="10" Height="10"/>
+    <Image Name="scene1" XPos="2" YPos="772" Width="1309" Height="646"/>
+</Imageset>

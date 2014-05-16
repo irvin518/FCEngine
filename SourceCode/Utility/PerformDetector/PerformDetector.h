@@ -6,7 +6,10 @@
 #define FC_PERFORMDETECT_STOP(type) {CPerformDetector::GetInstance()->StopDetectNode(type);}
 #define FC_PERFORMDETECT_START(type) {int eipValue=0; BEATS_ASSI_GET_EIP(eipValue);CPerformDetector::GetInstance()->StartDetectNode(type, eipValue);}
 #define FC_PERFORMDETECT_RESET() {CPerformDetector::GetInstance()->ResetFrameResult();}
-#define FC_PERFORMDETECT_SCOPE(type) CAutoPerformDetector _auto_detector_(type)
+#define FC_PERFORMDETECT_SCOPE(type) \
+    int _eip_value_ = 0; \
+    BEATS_ASSI_GET_EIP(_eip_value_);   \
+    CAutoPerformDetector _auto_detector_(type, _eip_value_)
 
 enum EPerformNodeType
 {
@@ -235,14 +238,14 @@ private:
 class CAutoPerformDetector
 {
 public:
-    CAutoPerformDetector(int type)
+    CAutoPerformDetector(int type, size_t id)
         : m_type(type)
     {
-        FC_PERFORMDETECT_START(m_type);
+        CPerformDetector::GetInstance()->StartDetectNode(type, id);
     }
     ~CAutoPerformDetector()
     {
-        FC_PERFORMDETECT_STOP(m_type);
+        CPerformDetector::GetInstance()->StopDetectNode(m_type);
     }
 private:
     int m_type;

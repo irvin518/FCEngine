@@ -41,6 +41,9 @@ bool CButton::OnMouseEvent( CMouseEvent *event )
                 if(event->Type() == eEVT_EVENT_MOUSE_PRESSED)
                 {
                     m_state = eST_STATE_PRESSED;
+
+                    WindowEvent event(eET_EVENT_TOUCHDOWN);
+                    DispatchEvent(&event);
                 }
                 else if(event->Type() == eEVT_EVENT_MOUSE_RELEASED)
                 {
@@ -48,7 +51,18 @@ bool CButton::OnMouseEvent( CMouseEvent *event )
                     {
                         m_state = eST_STATE_NORMAL;
 
-                        WindowEvent event(eET_EVENT_CLICKED);
+                        WindowEvent eventClick(eET_EVENT_CLICKED);
+                        DispatchEvent(&eventClick);
+
+                        WindowEvent eventTouchUp(eET_EVENT_TOUCHUP);
+                        DispatchEvent(&eventTouchUp);
+                    }
+                }
+                else if(event->Type() == eEVT_EVENT_MOUSE_MOVED)
+                {
+                    if(m_state == eST_STATE_PRESSED)
+                    {
+                        WindowEvent event(eET_EVENT_MOVE);
                         DispatchEvent(&event);
                     }
                 }

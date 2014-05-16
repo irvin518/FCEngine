@@ -76,6 +76,12 @@ bool CAnimationModel::OnPropertyChange(void* pVariableAddr, void* pNewValueToBeS
         {
             DeserializeVarialble(m_strCfgFilePath, (CSerializer*) pNewValueToBeSet);
             Load();
+
+            CComponentEditorProxy* pProxy = static_cast<CComponentEditorProxy*>(CComponentProxyManager::GetInstance()->GetComponentInstance(this->GetId(), this->GetGuid()));
+            BEATS_ASSERT(pProxy != NULL, _T("Can't get proxy with id: %d guid:0x%x"), GetId(), GetGuid());
+            CPropertyDescriptionBase* pProperty = pProxy->GetPropertyDescription(GET_VAR_NAME(m_strMoveName));
+            BEATS_ASSERT(pProperty != NULL, _T("Get property %s failed!"), GET_VAR_NAME(m_strMoveName));
+            pProperty->SetValueList(m_moveNameList);
             bRet = true;
         }
         else if(pVariableAddr == &m_strMoveName)
@@ -135,15 +141,8 @@ void CAnimationModel::RenderSkeletal()
             pBone->SetPercentPos(0.5, 0.5);
             pBone->SetVisible(false);
 
-            CTextureAtlas *atlas = CTextureFragManager::GetInstance()->CreateTextureAtlas(szTextureName);
-            kmVec2 point;
-            kmVec2 size;
-            kmVec2Fill(&point, 0, 0);
-            kmVec2Fill(&size, (kmScalar)atlas->Texture()->Width(),(kmScalar)atlas->Texture()->Height());
-            pBone->SetSize(size.x, size.y);
-            atlas->CreateTextureFrag(_T("full_image"), point, size);
-            TString fragName = szTextureName;
-            fragName += _T("/full_image");
+            TString fragName = _T("tauren.xml/");
+            fragName += szTextureName;
             pBone->Renderer()->AddLayer(fragName);
 
             std::map<std::string, SFrameData>::const_iterator iter = framedatas.find(item);

@@ -16,7 +16,7 @@ void CBuff::ReflectData(CSerializer& serializer)
     super::ReflectData(serializer);
 }
 
-void CBuff::Execute(CTank& tank)
+void CBuff::Execute(SAIPackage& package)
 {
 
 }

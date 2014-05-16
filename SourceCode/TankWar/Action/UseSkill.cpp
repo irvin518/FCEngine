@@ -19,7 +19,7 @@ void CUseSkill::ReflectData(CSerializer& serializer)
     DECLARE_DEPENDENCY_LIST(serializer, m_skillList, _T("技能列表"), eDT_Strong);
 }
 
-void CUseSkill::Execute(CTank& tank)
+void CUseSkill::Execute(SAIPackage& package)
 {
 
 }

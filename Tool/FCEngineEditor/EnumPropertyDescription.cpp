@@ -4,6 +4,8 @@
 #include "Utility/BeatsUtility/Serializer.h"
 #include "Utility/BeatsUtility/EnumStrGenerator.h"
 #include "Utility/BeatsUtility/ComponentSystem/Component/ComponentEditorProxy.h"
+#include <wx/propgrid/propgrid.h>
+#include <wx/propgrid/advprops.h>
 
 SEnumPropertyDataMapWrapper CEnumPropertyDescription::m_enumPropertyDataMap;
 

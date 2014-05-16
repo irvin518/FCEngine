@@ -39,7 +39,7 @@ bool CSkeleton::Load()
 {
     bool bRet = true;
     // Load From File
-    CSerializer serializer(_T("..\\Resource\\skeleton\\org.ske"));
+    CSerializer serializer(GetFilePath().c_str());
     size_t uBoneCount = 0;
     serializer >> uBoneCount;
     for (size_t i = 0; i < uBoneCount; ++i)

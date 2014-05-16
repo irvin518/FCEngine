@@ -46,9 +46,11 @@ private:
     SharePtr<CMaterial> m_pMaterial;
     GLenum m_primitiveType;
     bool m_bIndexed;
-    bool m_bCompleted;
+
     std::vector<CVertexPTC> m_vertices;
     std::vector<unsigned short> m_indices;
+    bool m_bCompleted;
+
     GLuint m_VAO, m_VBO[2];
 };
 

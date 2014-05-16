@@ -16,7 +16,7 @@ void CDropItem::ReflectData(CSerializer& serializer)
     super::ReflectData(serializer);
 }
 
-void CDropItem::Execute(CTank& tank)
+void CDropItem::Execute(SAIPackage& package)
 {
 
 }

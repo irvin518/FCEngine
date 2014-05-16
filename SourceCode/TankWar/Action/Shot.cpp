@@ -13,12 +13,12 @@ CShot::~CShot()
 
 }
 
-void CShot::Execute(CTank& tank)
-{
-    tank.GetTurret()->Shot();
-}
-
 void CShot::ReflectData( CSerializer& serializer )
 {
 
+}
+
+void CShot::Execute(SAIPackage& package)
+{
+    package.pSourceObj->GetTurret()->Shot();
 }

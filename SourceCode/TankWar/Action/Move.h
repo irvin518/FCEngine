@@ -11,7 +11,7 @@ public:
     virtual ~CMove();
     virtual void ReflectData(CSerializer& serializer) override;
 public:
-    virtual void Execute(CTank& tank);
+    virtual void Execute(SAIPackage& package);
 private:
     kmVec2 m_direction;
 };

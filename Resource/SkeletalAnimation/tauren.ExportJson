@@ -21,7 +21,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/armor.png",
+              "name": "armor",
               "displayType": 0,
               "skin_data": [
                 {
@@ -51,7 +51,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/hand_left.png",
+              "name": "hand_left",
               "displayType": 0,
               "skin_data": [
                 {
@@ -81,7 +81,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/arm_left.png",
+              "name": "arm_left",
               "displayType": 0,
               "skin_data": [
                 {
@@ -111,7 +111,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/head.png",
+              "name": "head",
               "displayType": 0,
               "skin_data": [
                 {
@@ -141,7 +141,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/leg_left.png",
+              "name": "leg_left",
               "displayType": 0,
               "skin_data": [
                 {
@@ -171,7 +171,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/foot_left.png",
+              "name": "foot_left",
               "displayType": 0,
               "skin_data": [
                 {
@@ -201,7 +201,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/body.png",
+              "name": "body",
               "displayType": 0,
               "skin_data": [
                 {
@@ -231,7 +231,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/foot_right.png",
+              "name": "foot_right",
               "displayType": 0,
               "skin_data": [
                 {
@@ -261,7 +261,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/leg_right.png",
+              "name": "leg_right",
               "displayType": 0,
               "skin_data": [
                 {
@@ -291,7 +291,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/ax.png",
+              "name": "ax",
               "displayType": 0,
               "skin_data": [
                 {
@@ -321,7 +321,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/arm_right.png",
+              "name": "arm_right",
               "displayType": 0,
               "skin_data": [
                 {
@@ -351,7 +351,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/hand_right.png",
+              "name": "hand_right",
               "displayType": 0,
               "skin_data": [
                 {
@@ -381,7 +381,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "tauren_png/tauren_effect_1.png",
+              "name": "tauren_effect_1",
               "displayType": 0,
               "skin_data": [
                 {
@@ -395,7 +395,7 @@
               ]
             },
             {
-              "name": "tauren_png/tauren_effect_2.png",
+              "name": "tauren_effect_2",
               "displayType": 0,
               "skin_data": [
                 {
@@ -409,7 +409,7 @@
               ]
             },
             {
-              "name": "tauren_png/tauren_effect_3.png",
+              "name": "tauren_effect_3",
               "displayType": 0,
               "skin_data": [
                 {
@@ -6180,7 +6180,7 @@
   ],
   "texture_data": [
     {
-      "name": "tauren_png/armor",
+      "name": "armor",
       "width": 82.0,
       "height": 80.0,
       "pX": 0.5,
@@ -6188,7 +6188,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/hand_left",
+      "name": "hand_left",
       "width": 54.0,
       "height": 83.0,
       "pX": 0.5,
@@ -6196,7 +6196,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/arm_left",
+      "name": "arm_left",
       "width": 51.0,
       "height": 58.0,
       "pX": 0.5,
@@ -6204,7 +6204,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/head",
+      "name": "head",
       "width": 93.0,
       "height": 64.0,
       "pX": 0.5,
@@ -6212,7 +6212,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/leg_left",
+      "name": "leg_left",
       "width": 86.0,
       "height": 83.0,
       "pX": 0.5,
@@ -6220,7 +6220,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/foot_left",
+      "name": "foot_left",
       "width": 58.0,
       "height": 36.0,
       "pX": 0.5,
@@ -6228,7 +6228,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/body",
+      "name": "body",
       "width": 90.0,
       "height": 124.0,
       "pX": 0.5,
@@ -6236,7 +6236,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/foot_right",
+      "name": "foot_right",
       "width": 57.0,
       "height": 39.0,
       "pX": 0.5,
@@ -6244,7 +6244,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/leg_right",
+      "name": "leg_right",
       "width": 86.0,
       "height": 83.0,
       "pX": 0.5,
@@ -6252,7 +6252,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/ax",
+      "name": "ax",
       "width": 115.759125,
       "height": 265.424225,
       "pX": 0.500176549,
@@ -6260,7 +6260,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/arm_right",
+      "name": "arm_right",
       "width": 57.078125,
       "height": 49.2625732,
       "pX": 0.500080943,
@@ -6268,7 +6268,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/hand_right",
+      "name": "hand_right",
       "width": 83.08992,
       "height": 62.04355,
       "pX": 0.5002487,
@@ -6276,7 +6276,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/tauren_effect_1",
+      "name": "tauren_effect_1",
       "width": 202.0,
       "height": 108.999992,
       "pX": 0.500247538,
@@ -6284,7 +6284,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/tauren_effect_2",
+      "name": "tauren_effect_2",
       "width": 83.0,
       "height": 193.999985,
       "pX": 0.5066265,
@@ -6292,7 +6292,7 @@
       "plistFile": ""
     },
     {
-      "name": "tauren_png/tauren_effect_3",
+      "name": "tauren_effect_3",
       "width": 69.0,
       "height": 122.0,
       "pX": 0.506521761,

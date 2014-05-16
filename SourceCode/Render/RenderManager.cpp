@@ -133,7 +133,7 @@ bool CRenderManager::Initialize()
     CShaderProgram * pLineShaderProgram = GetShaderProgram(pVS->ID(), pPS->ID());
     m_pLineMaterial = new CMaterial(true);
     m_pLineMaterial->GetRenderState()->SetShaderProgram(pLineShaderProgram->ID());
-    m_pLineMaterial->GetRenderState()->SetBoolState(GL_DEPTH_TEST, false);
+    m_pLineMaterial->GetRenderState()->SetBoolState(GL_DEPTH_TEST, true);
     m_pLineMaterial->GetRenderState()->SetBoolState(GL_BLEND, true);
     m_pLineMaterial->GetRenderState()->SetBlendFuncSrcFactor(GL_SRC_ALPHA);
     m_pLineMaterial->GetRenderState()->SetBlendFuncTargetFactor(GL_ONE_MINUS_SRC_ALPHA);

@@ -24,6 +24,7 @@ public:
     bool IsLoaded() const;
     void SetLoadedFlag(bool bFlag);
 
+    virtual bool OnPropertyChange(void* pVariableAddr, void* pNewValueToBeSet) override;
     virtual EResourceType GetType() = 0;
     virtual bool Load() = 0;
     virtual bool Unload() = 0;

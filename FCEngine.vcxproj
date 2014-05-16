@@ -445,6 +445,8 @@
     <ClCompile Include="SourceCode\Resource\Resource.cpp" />
     <ClCompile Include="SourceCode\Resource\ResourceManager.cpp" />
     <ClCompile Include="SourceCode\Resource\ResourcePathManager.cpp" />
+    <ClCompile Include="SourceCode\Resource\ResourceShlwapiManager.cpp" />
+    <ClCompile Include="SourceCode\Scene\CTerrain2DData.cpp" />
     <ClCompile Include="SourceCode\SkeletalAnimation\CAnimationController.cpp" />
     <ClCompile Include="SourceCode\SkeletalAnimation\CAnimationData.cpp" />
     <ClCompile Include="SourceCode\SkeletalAnimation\CAnimationImporter.cpp" />
@@ -661,6 +663,14 @@
     <ClInclude Include="SourceCode\Resource\ResourceManager.h" />
     <ClInclude Include="SourceCode\Resource\ResourcePathManager.h" />
     <ClInclude Include="SourceCode\Resource\ResourcePublic.h" />
+    <ClInclude Include="SourceCode\Resource\ResourceShlwapiManager.h" />
+    <ClInclude Include="SourceCode\Scene\CLayer.h" />
+    <ClInclude Include="SourceCode\Scene\CNode.h" />
+    <ClInclude Include="SourceCode\Scene\CNode2D.h" />
+    <ClInclude Include="SourceCode\Scene\CScene.h" />
+    <ClInclude Include="SourceCode\Scene\CSceneManager.h" />
+    <ClInclude Include="SourceCode\Scene\CTerrain2D.h" />
+    <ClInclude Include="SourceCode\Scene\CTerrain2DData.h" />
     <ClInclude Include="SourceCode\SkeletalAnimation\CAnimationController.h" />
     <ClInclude Include="SourceCode\SkeletalAnimation\CAnimationData.h" />
     <ClInclude Include="SourceCode\SkeletalAnimation\CAnimationImporter.h" />

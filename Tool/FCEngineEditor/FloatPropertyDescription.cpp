@@ -4,6 +4,9 @@
 #include "Utility/BeatsUtility/Serializer.h"
 #include <float.h>
 
+#include <wx/propgrid/propgrid.h>
+#include <wx/propgrid/advprops.h>
+
 CFloatPropertyDescription::CFloatPropertyDescription(CSerializer* pSerializer)
 : super(eRPT_Float)
 , m_fMinValue(-FLT_MAX)

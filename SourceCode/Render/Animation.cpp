@@ -67,8 +67,7 @@ bool CAnimation::Load()
     bool bRet = true;
     // Load From File
 
-    TCHAR* filePath = (TCHAR*)GetFilePath().c_str();
-    CSerializer serializer(filePath);
+    CSerializer serializer(GetFilePath().c_str());
     size_t uBoneCount = 0;
     serializer >> uBoneCount;
     serializer >> m_uFPS;

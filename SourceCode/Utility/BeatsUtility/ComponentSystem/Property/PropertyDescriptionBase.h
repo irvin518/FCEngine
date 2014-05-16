@@ -72,6 +72,7 @@ public:
     virtual void Initialize();
     virtual bool IsContainerProperty();
 
+    virtual void SetValueList(const std::vector<TString>& valueList);
     virtual CPropertyDescriptionBase* Clone(bool bCloneValue);
     virtual CPropertyDescriptionBase* CreateNewInstance() = 0;
 

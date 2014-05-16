@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:54f074601a8424c1fbce9ac459bec74a$ -->
+<Imageset Name="tauren" Imagefile="tauren.png" NativeHorzRes="256" NativeVertRes="570" AutoScaled="false">
+    <Image Name="arm_left" XPos="193" YPos="301" Width="51" Height="58"/>
+    <Image Name="arm_right" XPos="206" YPos="79" Width="48" Height="56"/>
+    <Image Name="armor" XPos="158" YPos="475" Width="82" Height="80"/>
+    <Image Name="ax" XPos="2" YPos="113" Width="97" Height="259"/>
+    <Image Name="body" XPos="101" YPos="179" Width="90" Height="124"/>
+    <Image Name="foot_left" XPos="196" YPos="137" Width="58" Height="36"/>
+    <Image Name="foot_right" XPos="196" YPos="175" Width="57" Height="39"/>
+    <Image Name="hand_left" XPos="193" YPos="216" Width="54" Height="83"/>
+    <Image Name="hand_right" XPos="206" YPos="2" Width="48" Height="75"/>
+    <Image Name="head" XPos="101" YPos="113" Width="93" Height="64"/>
+    <Image Name="leg_left" XPos="158" YPos="390" Width="86" Height="83"/>
+    <Image Name="leg_right" XPos="101" YPos="305" Width="86" Height="83"/>
+    <Image Name="tauren_effect_1" XPos="2" YPos="2" Width="202" Height="109"/>
+    <Image Name="tauren_effect_2" XPos="2" YPos="374" Width="83" Height="194"/>
+    <Image Name="tauren_effect_3" XPos="87" YPos="390" Width="69" Height="122"/>
+</Imageset>

@@ -43,6 +43,7 @@
 #define BUTTONSIZE wxSize(20, 20)
 #define SIZERBORDERWIDTH 5
 #define PANELSIZESCALE 0.13
+#define RIGHTPANELSIZESCALE 0.22
 #define IDBEGIN 1111
 
 enum 
@@ -74,6 +75,10 @@ public:
     {
 
     }
+    bool IsDirectory()
+    {
+        return m_pComponentBase != NULL;
+    }
 
     CComponentBase* GetComponentBase() const
     {
@@ -94,8 +99,6 @@ EVT_TREE_BEGIN_DRAG(Ctrl_Tree_Compontent,CEditorMainFrame::OnComponentStartDrag)
 EVT_TREE_END_DRAG(Ctrl_Tree_Compontent,CEditorMainFrame::OnComponentEndDrag)
 EVT_TREE_SEL_CHANGED(Ctrl_Tree_Compontent,CEditorMainFrame::OnTemplateComponentItemChanged)
 EVT_SEARCHCTRL_SEARCH_BTN(wxID_ANY, CEditorMainFrame::OnSearch)
-EVT_SPLITTER_DCLICK(wxID_ANY, CEditorMainFrame::OnSplitterSashDClick)
-EVT_SPLITTER_SASH_POS_CHANGING(wxID_ANY, CEditorMainFrame::OnSplitterSashDClick)
 EVT_TEXT_ENTER(wxID_ANY, CEditorMainFrame::OnSearch)
 EVT_TEXT(Ctrl_Search_TreeSearch, CEditorMainFrame::OnSearchTextUpdate)
 EVT_IDLE(CEditorMainFrame::OnIdle)
@@ -239,7 +242,8 @@ void CEditorMainFrame::CreateAuiToolBar()
         wxAUI_TB_TEXT |
         wxAUI_TB_HORZ_TEXT);
     m_pToolBarPerform->AddTool(ID_TB_PerformBtn, wxT("Performance"), wxArtProvider::GetBitmap(wxART_GO_FORWARD), wxEmptyString, wxITEM_CHECK);
-    m_pToolBarPerform->AddTool(ID_TB_MemoryBtn, wxT("Memory"), wxArtProvider::GetBitmap(wxART_GO_FORWARD), wxEmptyString, wxITEM_CHECK);
+    //TODO:this need to be complete
+    //m_pToolBarPerform->AddTool(ID_TB_MemoryBtn, wxT("Memory"), wxArtProvider::GetBitmap(wxART_GO_FORWARD), wxEmptyString, wxITEM_CHECK);
 
     m_Manager.AddPane(tb1,
         wxAuiPaneInfo().Name(wxT("tb1")).
@@ -272,7 +276,7 @@ void CEditorMainFrame::CreateAuiNoteBook()
     pSizer->Add(m_pSearch, 0, wxGROW|wxALL, 0);
 
     pSizer = new wxBoxSizer(wxVERTICAL);
-    m_pRightPanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, client_size);
+    m_pRightPanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(GetClientSize().GetWidth() * RIGHTPANELSIZESCALE, GetClientSize().GetHeight() * RIGHTPANELSIZESCALE));
     m_pRightPanel->SetSizer(pSizer);
     m_pCheckBoxPropGrid = new wxCheckBox(m_pRightPanel, Ctrl_CheckBox_ShowGuidId, wxT("ShowGI"));
     pSizer->Add(m_pCheckBoxPropGrid, 0, wxGROW|wxALL, 0);
@@ -563,8 +567,8 @@ void CEditorMainFrame::CreatSplitter()
     wxGLContext* pContext = static_cast<CEngineEditor*>(wxApp::GetInstance())->CreateGLContext(m_pSplTop);
     m_pSplTop->SetGLContext(pContext);
     m_pComponentRenderWindow = new CFCEditorComponentWindow(m_pSplitter, pContext);
-    m_pComponentRenderWindow->SetMinSize(wxSize(MINWINDOWSIZE, MINWINDOWSIZE));
     m_pSplitter->SplitHorizontally(m_pSplTop, m_pComponentRenderWindow, 500);
+    m_pSplitter->SetMinimumPaneSize(MINWINDOWSIZE);
     //TODO: Don't change the order, or the rendering is wrong. Don't know why
     RegisterUpdateWindow(m_pComponentRenderWindow);
     RegisterUpdateWindow(m_pSplTop);
@@ -937,7 +941,7 @@ void CEditorMainFrame::OpenComponentFile( const TCHAR* pFilePath )
     int iComponentListPageIndex = -1;
     for (size_t i = 0; i < uPageCount; ++i)
     {
-        if (m_pLeft->GetPage(i) == m_pComponentTC)
+        if (m_pLeft->GetPage(i) == m_pComponentInstanceTreeCtrl)
         {
             iComponentListPageIndex = i;
             break;
@@ -945,7 +949,7 @@ void CEditorMainFrame::OpenComponentFile( const TCHAR* pFilePath )
     }
     if (iComponentListPageIndex == -1)
     {
-        m_pLeft->AddPage(m_pComponentInstanceTreeCtrl,CLanguageManager::GetInstance()->GetText(eL_ComponentInstance));
+        m_pLeft->AddPage(m_pComponentInstanceTreeCtrl, CLanguageManager::GetInstance()->GetText(eL_ComponentInstance));
     }
     UpdateComponentInstanceTreeCtrl();
 }
@@ -1292,14 +1296,6 @@ void CEditorMainFrame::InitializeComponentFileTree( CComponentProjectDirectory* 
     }
 }
 
-void CEditorMainFrame::OnSplitterSashDClick( wxSplitterEvent& /*event*/ )
-{
-    int psn = 0;
-    double gravity = 0.0;
-    gravity = m_pSplitter->GetSashGravity();
-    psn = m_pSplitter->GetSashPosition();
-}
-
 void CEditorMainFrame::InitFrame()
 {
     m_Manager.SetManagedWindow(this);
@@ -1565,7 +1561,7 @@ void CEditorMainFrame::UpdateComponentInstanceTreeCtrl()
     {
         TString strName = CComponentProxyManager::GetInstance()->QueryComponentName(iter->first);
         //Add a directory to tree
-        wxTreeItemId itemID = m_pComponentInstanceTreeCtrl->AppendItem(m_pComponentInstanceTreeCtrl->GetRootItem(), strName, eTCIT_Folder);
+        wxTreeItemId itemID = m_pComponentInstanceTreeCtrl->AppendItem(m_pComponentInstanceTreeCtrl->GetRootItem(), strName, eTCIT_Folder, -1, new CComponentInstanceTreeItemData(NULL));
         for (std::map<size_t, CComponentBase*>::const_iterator subIter = iter->second->begin(); subIter != iter->second->end(); ++subIter)
         {
             //Add a file node to the directory.
@@ -1582,8 +1578,15 @@ void CEditorMainFrame::OnActivateComponentInstanceTreeItem( wxTreeEvent& event )
     wxTreeItemId activeId = event.GetItem();
     CComponentInstanceTreeItemData* pItemData = (CComponentInstanceTreeItemData*)m_pComponentInstanceTreeCtrl->GetItemData(activeId);
     BEATS_ASSERT(pItemData != NULL);
-    CComponentEditorProxy* pComponentProxy = dynamic_cast<CComponentEditorProxy*>(pItemData->GetComponentBase());
-    SelectComponent(pComponentProxy);
+    if (pItemData->IsDirectory())
+    {
+        m_pComponentInstanceTreeCtrl->Toggle(activeId);
+    }
+    else
+    {
+        CComponentEditorProxy* pComponentProxy = dynamic_cast<CComponentEditorProxy*>(pItemData->GetComponentBase());
+        SelectComponent(pComponentProxy);
+    }
 }
 
 void CEditorMainFrame::OnCheckBoxGuidId( wxCommandEvent& event )

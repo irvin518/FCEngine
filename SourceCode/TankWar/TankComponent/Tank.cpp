@@ -67,6 +67,21 @@ bool CTank::IsDie()
     return m_eTankState == eTS_TANKSTATE_DIE;
 }
 
+void CTank::Display()
+{
+
+}
+
+void CTank::Hide()
+{
+
+}
+
+void CTank::UseItem(int iItemId)
+{
+
+}
+
 void CTank::Recover(kmScalar fRecoverHP)
 {
     m_fHP += fRecoverHP;

@@ -5,6 +5,7 @@
 #include "Utility/BeatsUtility/ComponentSystem/ComponentPublic.h"
 #include "Utility/BeatsUtility/ComponentSystem/Component/ComponentEditorProxy.h"
 #include "wxWidgetsPropertyBase.h"
+#include <wx/propgrid/propgrid.h>
 
 STriggerContent::STriggerContent( const TString& strProperty, ECompareOperator op, const TString& refValue )
 : m_strPropertyName(strProperty)

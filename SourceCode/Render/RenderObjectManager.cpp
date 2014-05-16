@@ -37,6 +37,18 @@ CModel *CRenderObjectManager::CreateModel()
     return model;
 }
 
+void CRenderObjectManager::AddModel(CModel* pModel)
+{
+    BEATS_ASSERT(pModel != nullptr);
+    m_renderObjects3D.push_back(pModel);
+}
+
+void CRenderObjectManager::DeleteModel(CModel* pModel)
+{
+    BEATS_ASSERT(pModel != nullptr);
+    m_renderObjects3D.remove(pModel);
+}
+
 CSprite *CRenderObjectManager::CreateSprite(const TString &textureAtlasName, 
                                             const TString &textureFragName, const kmVec2 &size)
 {

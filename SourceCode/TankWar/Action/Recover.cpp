@@ -17,7 +17,7 @@ void CRecover::ReflectData(CSerializer& serializer)
     DECLARE_PROPERTY(serializer, m_fRecoverHP,true, 0xFFFFFFFF, _T("»Ø¸´ÉúÃüÖµ"), NULL, NULL, NULL);
 }
 
-void CRecover::Execute(CTank& tank)
+void CRecover::Execute(SAIPackage& package)
 {
-    tank.Recover(m_fRecoverHP);
+    package.pSourceObj->Recover(m_fRecoverHP);
 }

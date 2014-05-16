@@ -16,6 +16,8 @@ class CRenderObjectManager
     BEATS_DECLARE_SINGLETON(CRenderObjectManager);
 public:
     CModel *CreateModel();
+    void AddModel(CModel* pModel);
+    void DeleteModel(CModel* pModel);
     CSprite *CreateSprite(const TString &textureAtlasName, 
         const TString &textureFragName, const kmVec2 &size);
     CAnimatableSprite *CreateAnimatableSprite(const TString &textureAtlasName, 

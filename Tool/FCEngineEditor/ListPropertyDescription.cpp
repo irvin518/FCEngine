@@ -5,6 +5,7 @@
 #include "ListPropertyDescription.h"
 #include "Utility/BeatsUtility/ComponentSystem/Component/ComponentProxyManager.h"
 #include "Utility/TinyXML/tinyxml.h"
+#include <wx/propgrid/propgrid.h>
 
 static const TString EMPTY_STRING = _T("Empty");
 

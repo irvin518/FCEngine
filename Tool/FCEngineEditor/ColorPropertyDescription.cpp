@@ -2,6 +2,8 @@
 #include "ColorPropertyDescription.h"
 #include "Utility/BeatsUtility/StringHelper.h"
 #include "Utility/BeatsUtility/Serializer.h"
+#include <wx/propgrid/propgrid.h>
+#include <wx/propgrid/advprops.h>
 
 CColorPropertyDescription::CColorPropertyDescription(CSerializer* pSerializer)
     : super(eRPT_UInt)

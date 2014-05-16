@@ -2,6 +2,7 @@
 #include "BoolPropertyDescription.h"
 #include "Utility/BeatsUtility/StringHelper.h"
 #include "Utility/BeatsUtility/Serializer.h"
+#include <wx/propgrid/propgrid.h>
 
 CBoolPropertyDescription::CBoolPropertyDescription(CSerializer* pSerializer)
 : super(eRPT_Bool)

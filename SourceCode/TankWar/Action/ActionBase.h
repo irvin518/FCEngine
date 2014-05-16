@@ -4,6 +4,12 @@
 #include "Utility/BeatsUtility/ComponentSystem/Component/ComponentBase.h"
 #include "../TankComponent/Tank.h"
 
+struct SAIPackage
+{
+    CTank* pSourceObj;
+    CTank* pTargetObj;
+};
+
 class CActionBase : public CComponentBase
 {
     typedef CComponentBase super;
@@ -14,7 +20,7 @@ public:
     virtual void ReflectData(CSerializer& serializer) override;
 public:
     CActionBase* GetNextAction();
-    virtual void Execute(CTank& tank) = 0;
+    virtual void Execute(SAIPackage& package) = 0;
 
 protected:
     CActionBase* m_pNextAction;

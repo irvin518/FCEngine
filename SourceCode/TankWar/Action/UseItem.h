@@ -2,7 +2,6 @@
 #define USERITEM_H_INCLUDE
 #include "ActionBase.h"
 
-class CItem;
 class CUseItem : public CActionBase
 {
     typedef CActionBase super;
@@ -13,10 +12,10 @@ public:
 
     virtual void ReflectData(CSerializer& serializer) override;
 public:
-    virtual void Execute(CTank& tank);
+    virtual void Execute(SAIPackage& package);
 
 private:
-    CItem* m_pItem;
+    int m_iItemID;
 };
 
 #endif//!USERITEM_H_INCLUDE

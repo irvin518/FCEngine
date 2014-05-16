@@ -32,7 +32,7 @@ bool CTextureAtlas::Load()
         BEATS_SAFE_DELETE_ARRAY(filepath);
 
         TiXmlElement *root = doc.RootElement();
-        BEATS_ASSERT(strcmp(root->Value(), "Imageset") == 0);
+        BEATS_ASSERT(root && strcmp(root->Value(), "Imageset") == 0);
         const char *name = root->Attribute("Name");
         BEATS_ASSERT(name);
         size_t len = strlen(name);

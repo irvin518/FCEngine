@@ -18,7 +18,7 @@ void CHurt::ReflectData(CSerializer& serializer)
     DECLARE_PROPERTY(serializer, m_fHurtData, true, 0xFFFFFFFF, _T("ÉËº¦ÊıÖµ"), NULL, NULL, NULL);
 }
 
-void CHurt::Execute(CTank& tank)
+void CHurt::Execute(SAIPackage& package)
 {
-    tank.Hurt(m_fHurtData);
+    package.pTargetObj->Hurt(m_fHurtData);
 }

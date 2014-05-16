@@ -12,12 +12,11 @@ CRenderBatch::CRenderBatch(SharePtr<CMaterial> material, GLenum primitiveType, b
     , m_bCompleted(false)
     , m_VAO(0)
 {
-    FC_PERFORMDETECT_START(ePNT_CreateRenderBatch);
+    FC_PERFORMDETECT_SCOPE(ePNT_CreateRenderBatch);
     memset(m_VBO, 0, sizeof(m_VBO));
     CRenderer::GetInstance()->GenVertexArrays(1, &m_VAO);
     CRenderer::GetInstance()->GenBuffers(m_bIndexed ? 2 : 1, m_VBO);
     setupVAO();
-    FC_PERFORMDETECT_STOP(ePNT_CreateRenderBatch);
 }
 
 CRenderBatch::~CRenderBatch()
@@ -28,19 +27,18 @@ CRenderBatch::~CRenderBatch()
 
 void CRenderBatch::PreRender()
 {
-    FC_PERFORMDETECT_START(ePNT_RenderBatchPreRender);
+    FC_PERFORMDETECT_SCOPE(ePNT_RenderBatchPreRender);
     if(!m_vertices.empty())
     {
         updateVBO();
         CRenderer::GetInstance()->BindVertexArray(m_VAO);
         m_pMaterial->Use();
     }
-    FC_PERFORMDETECT_STOP(ePNT_RenderBatchPreRender);
 }
 
 void CRenderBatch::Render()
 {
-    FC_PERFORMDETECT_START(ePNT_RenderBatchRender);
+    FC_PERFORMDETECT_SCOPE(ePNT_RenderBatchRender);
     if(!m_vertices.empty())
     {
         if(m_bIndexed)
@@ -54,17 +52,15 @@ void CRenderBatch::Render()
             CRenderer::GetInstance()->DrawArrays(m_primitiveType, 0, m_vertices.size());
         }
     }
-    FC_PERFORMDETECT_STOP(ePNT_RenderBatchRender);
 }
 
 void CRenderBatch::PostRender()
 {
-    FC_PERFORMDETECT_START(ePNT_RenderBatchPostRender);
+    FC_PERFORMDETECT_SCOPE(ePNT_RenderBatchPostRender);
     if(!m_vertices.empty())
     {
         CRenderer::GetInstance()->BindVertexArray(0);
     }
-    FC_PERFORMDETECT_STOP(ePNT_RenderBatchPostRender);
 }
 
 void CRenderBatch::AddQuad(const CQuadP &quadP, const CQuadT &quadT, const kmMat4 &transform)
@@ -141,7 +137,7 @@ void CRenderBatch::setupVAO()
 
 void CRenderBatch::updateVBO()
 {
-    FC_PERFORMDETECT_START(ePNT_RenderBatchUpdateVBO);
+    FC_PERFORMDETECT_SCOPE(ePNT_RenderBatchUpdateVBO);
     if(!m_vertices.empty())
     {
         CRenderer *pRenderer = CRenderer::GetInstance();
@@ -162,7 +158,6 @@ void CRenderBatch::updateVBO()
             FC_PERFORMDETECT_STOP(ePNT_RenderBatchUpdateVBO1);
         }
     }
-    FC_PERFORMDETECT_STOP(ePNT_RenderBatchUpdateVBO);
 }
 
 void CRenderBatch::Clear()

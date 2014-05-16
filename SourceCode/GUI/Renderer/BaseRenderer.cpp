@@ -107,21 +107,24 @@ void CBaseRenderer::RenderLayers( const kmMat4 &parentTransform ) const
     {
         for(auto layer : *layers)
         {
-            if(m_pWindow->IsClipping())
+            if(layer->GetTextureFrag())
             {
-                layer->GetMaterial()->GetRenderState()->SetBoolState(GL_SCISSOR_TEST, true);
-                kmVec2 pos;
-                kmVec2 size;
-                m_pWindow->GetScissorRect(pos, size);
-                layer->GetMaterial()->GetRenderState()->SetScissorRect(pos.x, pos.y, size.x, size.y);
+                if(m_pWindow->IsClipping())
+                {
+                    layer->GetMaterial()->GetRenderState()->SetBoolState(GL_SCISSOR_TEST, true);
+                    kmVec2 pos;
+                    kmVec2 size;
+                    m_pWindow->GetScissorRect(pos, size);
+                    layer->GetMaterial()->GetRenderState()->SetScissorRect(pos.x, pos.y, size.x, size.y);
+                }
+                else
+                {
+                    layer->GetMaterial()->GetRenderState()->SetBoolState(GL_SCISSOR_TEST, false);
+                }
+                CRenderBatch *batch = CSystem::GetInstance()->GetRenderGroup()->GetRenderBatch(
+                    layer->GetMaterial(), GL_TRIANGLES, true);
+                batch->AddQuad(m_quad, layer->GetTextureFrag()->Quad(), parentTransform);
             }
-            else
-            {
-                layer->GetMaterial()->GetRenderState()->SetBoolState(GL_SCISSOR_TEST, false);
-            }
-            CRenderBatch *batch = CSystem::GetInstance()->GetRenderGroup()->GetRenderBatch(
-                layer->GetMaterial(), GL_TRIANGLES, true);
-            batch->AddQuad(m_quad, layer->GetTextureFrag()->Quad(), parentTransform);
         }
     }
 }

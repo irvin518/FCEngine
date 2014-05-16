@@ -15,15 +15,19 @@ public:
     bool InitLoadThread();
     template <typename T>
     SharePtr<T> GetResource(const TString &filename, bool bAsync);
+    bool QueryResource(const TString& fileName, SharePtr<CResource>& output) const;
     bool CleanUp();
     std::condition_variable& GetLoadCondition();
     std::mutex& GetLoadMutex();
 
-private:
-    bool LoadResource(SharePtr<CResource> pResource, bool bAsync);
-    bool CreateLoadThread();
+    // Don't use it out of CResource.
     void RegisterResource(const SharePtr<CResource>& pResource);
     void UnregisterResource(const SharePtr<CResource>& pResource);
+    bool LoadResource(SharePtr<CResource> pResource, bool bAsync);
+    TString GetFullPath(const TString &strFileName, EResourceType type) const;
+
+private:
+    bool CreateLoadThread();
     static void LoadResourceThreadFunc(CResourceManager* pMgr);
 
 private:
@@ -45,14 +49,12 @@ template <typename T>
 SharePtr<T> CResourceManager::GetResource( const TString &strFilePath, bool bAsync )
 {
     SharePtr<T> pRet;
-    CResourcePathManager::EResourcePathType pathType = CResourcePathManager::GetInstance()->GetResourcePathType(T::RESOURCE_TYPE);
-    TString strPath = CResourcePathManager::GetInstance()->GetResourcePath(pathType);
-    strPath.append(strFilePath);
-    TResourceNameMap::iterator iter = m_resource.find(strPath);
+    TString strFullPath = GetFullPath(strFilePath, T::RESOURCE_TYPE);
+    TResourceNameMap::iterator iter = m_resource.find(strFullPath);
     if(iter == m_resource.end())
     {
         pRet = new T;
-        pRet->SetFilePath(strPath);
+        pRet->SetFilePath(strFullPath);
         LoadResource(pRet, bAsync);
     }
     else
